@@ -14,7 +14,7 @@ exec --no-startup-id mpv ~/.config/i3/xp-startup.mp3
 
 # Things to launch when i3 starts
 # exec transmission-daemon
-exec --no-startup-id xautolock -time 20 -locker ~/.scripts/i3lock.sh
+exec --no-startup-id xautolock -time 20 -locker $SCRIPTS/i3lock.sh
 bindsym $mod+F1 exec st -e vim ~/goodbye.md
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
@@ -278,9 +278,9 @@ for_window [class="nmtui"] floating enable enable border normal
 for_window [title="galculator"] floating enable enable border normal
 
 # Misc. Keybindings
-bindsym Print exec --no-startup-id $SCRIPTS/./scrot-notifier.sh
-bindsym $mod+Print exec --no-startup-id $SCRIPTS/./scrot-notifier.sh -u
-bindsym $mod+Shift+Print exec --no-startup-id $SCRIPTS/./scrot-notifier.sh -fs
+bindsym Print exec --no-startup-id $SCRIPTS/scrot-notifier.sh
+bindsym $mod+Print exec --no-startup-id $SCRIPTS/scrot-notifier.sh -u
+bindsym $mod+Shift+Print exec --no-startup-id $SCRIPTS/scrot-notifier.sh -fs
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -381,9 +381,9 @@ mode "$mode_system" {
     # bindsym r exec --no-startup-id i3exit reboot, mode "default"
     # bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
 
-    bindsym l mode "default" ; exec i3lock -c 053262 & sleep 10 && pidof i3lock && xset s activate
-    bindsym s mode "default" ; exec i3lock & systemctl suspend
-    bindsym h mode "default" ; exec i3lock & systemctl hibernate
+    bindsym l mode "default" ; exec $SCRIPTS/i3lock.sh
+    bindsym s mode "default" ; exec $SCRIPTS/i3lock.sh & systemctl suspend
+    bindsym h mode "default" ; exec $SCRIPTS/i3lock.sh & systemctl hibernate
     bindsym r mode "default" ; exec systemctl reboot
     bindsym Shift+s mode "default" ; exec systemctl poweroff
 
