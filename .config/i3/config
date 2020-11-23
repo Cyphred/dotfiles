@@ -283,13 +283,15 @@ for_window [title="Removable Media Manager"] floating enable enable border norma
 bindsym Print exec --no-startup-id $SCRIPTS/scrot-notifier.sh
 bindsym $mod+Print exec --no-startup-id $SCRIPTS/scrot-notifier.sh -u
 bindsym $mod+Shift+Print exec --no-startup-id $SCRIPTS/scrot-notifier.sh -fs
+bindsym $mod+p exec --no-startup-id picom & notify-send -u low "Compositor Enabled"
+bindsym $mod+Shift+p exec --no-startup-id kill $(pidof picom) && notify-send -u low "Compositor Disabled"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+f exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+f exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -420,11 +422,11 @@ mode "$mode_rotate" {
 
 # Docking shortcuts
 bindsym $mod+F12 mode "$mode_dock"
-set $mode_dock (0)undock (1)single (2)horizontal
+set $mode_dock (u)ndock (s)ingle (h)orizontal
 mode "$mode_dock" {
-	bindsym 0 mode "default" ; exec --no-startup-id $SCRIPTS/screenlayouts/undock.sh
-	bindsym 1 mode "default" ; exec --no-startup-id $SCRIPTS/screenlayouts/single-dock.sh
-	bindsym 2 mode "default" ; exec --no-startup-id $SCRIPTS/screenlayouts/dual-dock-h.sh
+	bindsym u mode "default" ; exec --no-startup-id ~/.screenlayout/undock.sh
+	bindsym s mode "default" ; exec --no-startup-id ~/.screenlayout/single-dock.sh
+	bindsym h mode "default" ; exec --no-startup-id ~/.screenlayout/dual-dock-h.sh
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
