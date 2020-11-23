@@ -2,6 +2,9 @@ command=~/.local/bin/statusbar/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
+[nettraf]
+interval=1
+
 [cpubars]
 interval=5
 
@@ -20,9 +23,6 @@ interval=30
 
 [internet]
 interval=10
-
-[nettraf]
-interval=1
 
 # [ping]
 # interval=5
