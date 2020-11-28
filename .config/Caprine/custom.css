@@ -9,7 +9,7 @@ Press Command/Ctrl+R in Caprine to see your changes.
 */
 
 :root {
-	--base: #fff000;
+	--base: #000;
 	--base-ninety: rgba(255, 255, 255, 0.9);
 	--base-seventy-five: rgba(255, 255, 255, 0.75);
 	--base-seventy: rgba(255, 255, 255, 0.7);
