@@ -5,12 +5,15 @@ markup=pango
 [nettraf]
 interval=1
 
-[cpubars]
-interval=5
+[task]
+interval=once
 
 [torrent]
 interval=20
 signal=7
+
+[cpubars]
+interval=5
 
 [cpu]
 interval=15
