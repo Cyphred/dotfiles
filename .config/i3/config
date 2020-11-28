@@ -50,8 +50,8 @@ floating_modifier $mod
 hide_edge_borders none
 
 # change borders
-bindsym $mod+x border pixel 1
-bindsym $mod+z border normal
+bindsym $mod+x border normal
+bindsym $mod+c border pixel 1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -93,11 +93,11 @@ mode "$mode_gaps" {
 mode "$mode_gaps_inner" {
 	bindsym Up	gaps inner current plus 5
         bindsym Down	gaps inner current minus 5
-        bindsym Left	gaps inner current set 0
+        bindsym 0	gaps inner current set 0
 
         bindsym Shift+Up	gaps inner all plus 5
         bindsym Shift+Down	gaps inner all minus 5
-        bindsym Shift+Left	gaps inner all set 0
+        bindsym Shift+0	gaps inner all set 0
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -106,11 +106,11 @@ mode "$mode_gaps_inner" {
 mode "$mode_gaps_outer" {
         bindsym Up	gaps outer current plus 5
         bindsym Down	gaps outer current minus 5
-        bindsym Left	gaps outer current set 0
+        bindsym 0	gaps outer current set 0
 
         bindsym Shift+Up  gaps outer all plus 5
         bindsym Shift+Down gaps outer all minus 5
-        bindsym Shift+Left     gaps outer all set 0
+        bindsym Shift+0     gaps outer all set 0
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -203,8 +203,8 @@ bindsym $mod+Shift+s sticky toggle ; exec --no-startup-id notify-send -u low 'To
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
-bindsym $mod+b workspace back_and_forth
-bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+bindsym $mod+z workspace back_and_forth
+bindsym $mod+Shift+z move container to workspace back_and_forth; workspace back_and_forth
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -212,8 +212,8 @@ bindsym $mod+w layout tabbed
 bindsym $mod+t layout toggle split
 
 # change tiling orientation
-bindsym $mod+c split h ; exec --no-startup-id notify-send -u low 'Horizontal tiling'
 bindsym $mod+v split v ; exec --no-startup-id notify-send -u low 'Vertical tiling'
+bindsym $mod+b split h ; exec --no-startup-id notify-send -u low 'Horizontal tiling'
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
