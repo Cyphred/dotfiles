@@ -7,18 +7,25 @@
 tasks=$(task list | awk 'END {print $(NF-1)}')
 if [ ! -z "$tasks" ]; then
 	output+="$tasks"
+
+	# Tasks due today
+	dueToday=$(task overdue | grep $(date +%Y-%m-%d) | wc -l)
+	[ -z "$dueToday" ] && dueToday=0 || output+=" ⌛$dueToday"
+
 	# Overdue tasks
 	overdue=$(task overdue | awk 'END {print $(NF-1)}')
-	[ -z "$overdue" ] && overdue=0 || output+=" ⌛$overdue"
+	[ -z "$overdue" ] && overdue=0 || let overdue=$overdue-$dueToday && output+=" 🔴$overdue"
 else
 	output=0
 	tasks=0
 	overdue=0
+	dueToday=0
 fi
 
 printf "📋$output\n"
 
 case $BLOCK_BUTTON in
 	3) notify-send "📋 Task module" "📋 $tasks tasks
-⌛ $overdue overdue tasks" ;;
+⌛ $dueToday tasks due today
+🔴 $overdue tasks overdue" ;;
 esac
