@@ -1,0 +1,24 @@
+# !/bin/sh
+
+# Prints number of all tasks, and overdue ones.
+# Total number of tasks has emoji 📋
+# Number of overdue tasks has emoji ⌛
+
+tasks=$(task list | awk 'END {print $(NF-1)}')
+if [ ! -z "$tasks" ]; then
+	output+="$tasks"
+	# Overdue tasks
+	overdue=$(task overdue | awk 'END {print $(NF-1)}')
+	[ -z "$overdue" ] && overdue=0 || output+=" ⌛$overdue"
+else
+	output=0
+	tasks=0
+	overdue=0
+fi
+
+printf "📋$output\n"
+
+case $BLOCK_BUTTON in
+	3) notify-send "📋 Task module" "📋 $tasks tasks
+⌛ $overdue overdue tasks" ;;
+esac
