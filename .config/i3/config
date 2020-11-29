@@ -200,7 +200,7 @@ bindsym $mod+Ctrl+Left move workspace to output left
 bindsym $mod+Ctrl+Right move workspace to output right
 
 # toggle sticky
-bindsym $mod+Shift+s sticky toggle ; exec --no-startup-id notify-send -u low 'Toggled sticky mode'
+bindsym $mod+Shift+s sticky toggle ; exec --no-startup-id notify-send 'Toggled sticky mode'
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
@@ -213,8 +213,8 @@ bindsym $mod+w layout tabbed
 bindsym $mod+t layout toggle split
 
 # change tiling orientation
-bindsym $mod+v split v ; exec --no-startup-id notify-send -u low 'Vertical tiling'
-bindsym $mod+b split h ; exec --no-startup-id notify-send -u low 'Horizontal tiling'
+bindsym $mod+v split v ; exec --no-startup-id notify-send 'Vertical tiling'
+bindsym $mod+b split h ; exec --no-startup-id notify-send 'Horizontal tiling'
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -273,7 +273,7 @@ bindsym $mod+Ctrl+m exec --no-startup-id pavucontrol
 bindsym $mod+F1 exec --no-startup-id $SCRIPTS/dmenu-favorites.sh
 bindsym $mod+F2 exec --no-startup-id firefox
 bindsym $mod+F3 exec --no-startup-id $TERMINAL -e ranger
-bindsym $mod+F11 exec --no-startup-id setxkbmap us -variant colemak && notify-send -u low 'Keymap Set' 'Changed the keymap to US-Colemak'
+bindsym $mod+F11 exec --no-startup-id setxkbmap us -variant colemak && notify-send 'Keymap Set' 'Changed the keymap to US-Colemak'
 
 # Open specific applications in floating mode
 for_window [class="Pavucontrol"] floating enable enable border normal
@@ -285,8 +285,8 @@ for_window [title="Removable Media Manager"] floating enable enable border norma
 bindsym Print exec --no-startup-id $SCRIPTS/scrot-notifier.sh
 bindsym $mod+Print exec --no-startup-id $SCRIPTS/scrot-notifier.sh -u
 bindsym $mod+Shift+Print exec --no-startup-id $SCRIPTS/scrot-notifier.sh -fs
-bindsym $mod+p exec --no-startup-id picom & notify-send -u low "Compositor Enabled"
-bindsym $mod+Shift+p exec --no-startup-id kill $(pidof picom) && notify-send -u low "Compositor Disabled"
+bindsym $mod+p exec --no-startup-id picom & notify-send "Compositor Enabled"
+bindsym $mod+Shift+p exec --no-startup-id kill $(pidof picom) && notify-send "Compositor Disabled"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
