@@ -21,3 +21,5 @@ map [index] i navigate_index expand
 
 map [index] H navigate_index collapse-all
 map [index] I navigate_index expand-all
+
+set selection-clipboard clipboard
