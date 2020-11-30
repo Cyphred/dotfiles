@@ -4,25 +4,27 @@
 # Total number of tasks has emoji 📋
 # Number of overdue tasks has emoji ⌛
 
+output() {
+	output="📋$1"
+	# Due today
+	[ ! -z "$2" ] && [ "$2" -gt 0 ] && output+=" ⌛$2"
+
+	# Overdue
+	[ ! -z "$3" ] && [ "$3" -gt 0 ] && output+=" 🔴$3"
+
+	printf "$output\n"
+	exit
+}
+
 tasks=$(task list | awk 'END {print $(NF-1)}')
-if [ ! -z "$tasks" ]; then
-	output+="$tasks"
+[ "$tasks" -gt 0 ] || output 0
 
-	# Tasks due today
-	dueToday=$(task overdue | grep $(date +%Y-%m-%d) | wc -l)
-	[ -z "$dueToday" ] && dueToday=0 || output+=" ⌛$dueToday"
+overdueOutput=$(task overdue)
+dueToday=$(printf "$overdueOutput" | grep $(date +%Y-%m-%d) | wc -l)
+overdue=$(printf "$overdueOutput" | awk 'END {print $(NF-1)}')
+[ "$dueToday" -gt 0 ] && let overdue=$overdue-$dueToday
 
-	# Overdue tasks
-	overdue=$(task overdue | awk 'END {print $(NF-1)}')
-	[ -z "$overdue" ] && overdue=0 || let overdue=$overdue-$dueToday && output+=" 🔴$overdue"
-else
-	output=0
-	tasks=0
-	overdue=0
-	dueToday=0
-fi
-
-printf "📋$output\n"
+output $tasks $dueToday $overdue
 
 case $BLOCK_BUTTON in
 	3) notify-send "📋 Task module" "📋 $tasks tasks
