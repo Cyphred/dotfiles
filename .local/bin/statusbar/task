@@ -13,18 +13,20 @@ output() {
 	[ ! -z "$3" ] && [ "$3" -gt 0 ] && output+=" 🔴$3"
 
 	printf "$output\n"
-	exit
 }
 
+overdue=0
+dueToday=0
 tasks=$(task list | awk 'END {print $(NF-1)}')
-[ "$tasks" -gt 0 ] || output 0
-
-overdueOutput=$(task overdue)
-dueToday=$(printf "$overdueOutput" | grep $(date +%Y-%m-%d) | wc -l)
-overdue=$(printf "$overdueOutput" | awk 'END {print $(NF-1)}')
-[ "$dueToday" -gt 0 ] && let overdue=$overdue-$dueToday
-
-output $tasks $dueToday $overdue
+if [ "$tasks" -gt 0 ]; then
+	overdueOutput=$(task overdue)
+	dueToday=$(printf "$overdueOutput" | grep $(date +%Y-%m-%d) | wc -l)
+	overdue=$(printf "$overdueOutput" | awk 'END {print $(NF-1)}')
+	[ "$dueToday" -gt 0 ] && let overdue=$overdue-$dueToday
+	output $tasks $dueToday $overdue
+else
+	output 0
+fi
 
 case $BLOCK_BUTTON in
 	3) notify-send "📋 Task module" "📋 $tasks tasks
