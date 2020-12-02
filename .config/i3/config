@@ -50,8 +50,8 @@ floating_modifier $mod
 hide_edge_borders none
 
 # change borders
-bindsym $mod+x border normal
-bindsym $mod+c border pixel 1
+bindsym $mod+x border pixel 1
+bindsym $mod+c border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -337,7 +337,6 @@ mode "resize" {
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
-        bindsym $mod+p mode "default"
 }
 
 bindsym $mod+r mode "resize"
