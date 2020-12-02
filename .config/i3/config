@@ -273,7 +273,7 @@ bindsym $mod+Ctrl+m exec --no-startup-id pavucontrol
 bindsym $mod+F1 exec --no-startup-id $SCRIPTS/dmenu-favorites.sh
 bindsym $mod+F2 exec --no-startup-id firefox
 bindsym $mod+F3 exec --no-startup-id $TERMINAL -e ranger
-bindsym $mod+F11 exec --no-startup-id setxkbmap us -variant colemak && notify-send 'Keymap Set' 'Changed the keymap to US-Colemak'
+bindsym $mod+F11 exec --no-startup-id $SCRIPTS/colemak-layout-switch.sh
 
 # Open specific applications in floating mode
 for_window [class="Pavucontrol"] floating enable enable border normal
