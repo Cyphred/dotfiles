@@ -4,4 +4,4 @@
 # Jeremy Andrews Zantua | jeremyzantua@gmail.com
 
 datefname=$(date "+%Y-%m-%d-%H-%M-%S-%N")
-scrot $1 "$datefname"_$wx$h-scrot.png -e 'mv $f ~/Screenshots/ ; notify-send -u low "Screenshot taken" "Saved as $f"'
+scrot $1 "$datefname"_$wx$h-scrot.png -e 'mv $f $SCREENSHOTS ; notify-send "Screenshot taken" "Saved as $f"'
