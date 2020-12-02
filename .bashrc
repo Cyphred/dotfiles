@@ -11,6 +11,7 @@ export CUSTOMSCRIPTS=~/my-dotfiles/
 export WALLPAPER=~/.wallpaper
 export SCRIPTS=~/.scripts/
 export SCREENSHOTS=~/Pictures/Screenshots/
+export SCREENLAYOUT=~/.screenlayout/
 
 alias ls='ls --color=auto'
 alias cfb='vim ~/.bashrc'

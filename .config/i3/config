@@ -425,9 +425,9 @@ mode "$mode_rotate" {
 bindsym $mod+F12 mode "$mode_dock"
 set $mode_dock (u)ndock (s)ingle (h)orizontal
 mode "$mode_dock" {
-	bindsym u mode "default" ; exec --no-startup-id ~/.screenlayout/undock.sh
-	bindsym s mode "default" ; exec --no-startup-id ~/.screenlayout/single-dock.sh
-	bindsym h mode "default" ; exec --no-startup-id ~/.screenlayout/dual-dock-h.sh
+	bindsym u mode "default" ; exec --no-startup-id $SCREENLAYOUT/undock.sh
+	bindsym s mode "default" ; exec --no-startup-id $SCREENLAYOUT/single-dock.sh
+	bindsym h mode "default" ; exec --no-startup-id $SCREENLAYOUT/dual-dock-h.sh
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
