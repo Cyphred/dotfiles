@@ -5,6 +5,9 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Activates vi mode with <Escape>:
+set -o vi
+
 export EDITOR=/usr/bin/vim
 export TERMINAL=/usr/local/bin/st
 export CUSTOMSCRIPTS=~/my-dotfiles/
@@ -34,3 +37,5 @@ alias config='/usr/bin/git --git-dir=/home/cyphred/.cfg/ --work-tree=/home/cyphr
 alias powersaver='$SCRIPTS/powersaver-mode.sh'
 alias battlog='$SCRIPTS/log-battery-stats.sh'
 alias killwin='$SCRIPTS/kill-on-click.sh'
+alias getm4a='$SCRIPTS/dl-m4a.sh'
+alias getmp3='$SCRIPTS/dl-mp3.sh'
