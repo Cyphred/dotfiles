@@ -8,6 +8,9 @@
 # Activates vi mode with <Escape>:
 set -o vi
 
+# export PS1="[\[\e[0;32m\]\u\[\e[0m\]@\[\e[0;36m\]\h\[\e[0m\] \W]\$ "
+export PS1="[\[\e[0;93m\]\u\[\e[0m\]@\[\e[0;91m\]\h\[\e[0;94m\] \W\]\e[0m\]] \$ "
+# PS1='[\u@\h \W]\$ '
 export EDITOR=/usr/bin/vim
 export TERMINAL=/usr/local/bin/st
 export CUSTOMSCRIPTS=~/my-dotfiles/
@@ -32,7 +35,6 @@ alias lazy='vim ~/lazyman.md'
 alias torrent='pidof transmission-daemon || transmission daemon ; tremc'
 alias setbg='feh --bg-fill ~/.wallpaper'
 alias netwatch='$SCRIPTS/internet-watchdog.sh'
-PS1='[\u@\h \W]\$ '
 alias config='/usr/bin/git --git-dir=/home/cyphred/.cfg/ --work-tree=/home/cyphred'
 alias powersaver='$SCRIPTS/powersaver-mode.sh'
 alias battlog='$SCRIPTS/log-battery-stats.sh'
