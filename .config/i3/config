@@ -13,7 +13,6 @@
 # exec --no-startup-id mpv ~/.config/i3/xp-startup.mp3
 
 # Things to launch when i3 starts
-# exec transmission-daemon
 # exec --no-startup-id xautolock -time 20 -locker $SCRIPTS/i3lock.sh
 exec --no-startup-id transmission-daemon
 # bindsym $mod+F1 exec --no-startup-id st -e vim ~/goodbye.md
@@ -129,10 +128,19 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
-# set $refresh_i3status killall -SIGUSR1 i3status
 set $refresh_i3status pkill -RTMIN+10 i3blocks
+
+# Increase volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym Ctrl+Shift+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1% && $refresh_i3status
+
+# Decrease volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym Shift+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym Ctrl+Shift+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1% && $refresh_i3status
+
+# Mute audio and mic
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
@@ -214,7 +222,7 @@ bindsym $mod+t layout toggle split
 
 # change tiling orientation
 bindsym $mod+v split v ; exec --no-startup-id notify-send 'Vertical tiling'
-bindsym $mod+b split h ; exec --no-startup-id notify-send 'Horizontal tiling'
+bindsym $mod+Shift+v split h ; exec --no-startup-id notify-send 'Horizontal tiling'
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -287,6 +295,7 @@ bindsym $mod+Print exec --no-startup-id $SCRIPTS/scrot-notifier.sh -u
 bindsym $mod+Shift+Print exec --no-startup-id $SCRIPTS/scrot-notifier.sh -fs
 bindsym $mod+p exec --no-startup-id picom & notify-send "Compositor Enabled"
 bindsym $mod+Shift+p exec --no-startup-id kill $(pidof picom) && notify-send "Compositor Disabled"
+bindsym $mod+l exec --no-startup-id $SCRIPTS/i3lock.sh
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
