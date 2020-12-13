@@ -4,26 +4,23 @@
 # Intended for use with i3blocks or any other text-based status bar
 # Jeremy Andrews Zantua | jeremyzantua@gmail.com
 
+error() {
+	printf "⚠️0ms\n"
+	exit
+}
+
 addr="8.8.8.8"
-# Check if a response can be received
-output=$(ping -c 1 $addr | grep icmp_seq || printf "⚠️0ms\n" && exit)
-
-# If a response is received, check if destination is reachable
-[[ -z "printf '$output' | grep 'Unreachable'" ]] || printf "⚠️0ms\n" && exit
-
-# Extract the latency from the output
-output=$(printf "$output" | grep -o '\b\w*time=\w*\b' | sed "s/time=//g")
-output+="ms"
+output=$(ping -c 1 $addr | grep -o '\b\w*time=\w*\b' | sed "s/time=//g"|| error)
 
 # Change color depending on ping level
-if [[ $output < 80 ]]; then
+if [ "$output" -lt 80 ]; then
 	quality="🟢"
-elif [[ $output < 160 ]]; then
+elif [ "$output" -lt 120 ]; then
 	quality="🟡"
-elif [[ $output < 160 ]]; then
+elif [ "$output" -lt 160 ]; then
 	quality="🟠"
-elif [[ $output > 159 ]]; then
+else
 	quality="🔴"
 fi
 
-printf "$quality$output\n"
+printf "$quality$output""ms\n"
