@@ -11,6 +11,7 @@ error() {
 
 addr="8.8.8.8"
 output=$(ping -c 1 $addr | grep -o '\b\w*time=\w*\b' | sed "s/time=//g"|| error)
+[ -z "$output" ] && error
 
 # Change color depending on ping level
 if [ "$output" -lt 80 ]; then
