@@ -29,7 +29,7 @@ else
 fi
 
 case $BLOCK_BUTTON in
-	3) notify-send "📋 Task module" "📋 $tasks tasks
+	1) notify-send "📋 Task module" "📋 $tasks tasks
 ⌛ $dueToday tasks due today
 🔴 $overdue tasks overdue" ;;
 esac
