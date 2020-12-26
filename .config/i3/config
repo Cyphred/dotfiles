@@ -49,7 +49,7 @@ floating_modifier $mod
 hide_edge_borders none
 
 # change borders
-bindsym $mod+x border pixel 1
+bindsym $mod+Shift+c border pixel 1
 bindsym $mod+c border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -298,7 +298,7 @@ bindsym $mod+Shift+p exec --no-startup-id kill $(pidof picom) && notify-send "Co
 bindsym $mod+l exec --no-startup-id $SCRIPTS/i3lock.sh
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+# bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
