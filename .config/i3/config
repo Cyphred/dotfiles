@@ -296,6 +296,7 @@ bindsym $mod+Shift+Print exec --no-startup-id $SCRIPTS/scrot-notifier.sh -fs
 bindsym $mod+p exec --no-startup-id picom & notify-send "Compositor Enabled"
 bindsym $mod+Shift+p exec --no-startup-id kill $(pidof picom) && notify-send "Compositor Disabled"
 bindsym $mod+l exec --no-startup-id $SCRIPTS/i3lock.sh
+bindsym XF86Calculator exec --no-startup-id galculator
 
 # reload the configuration file
 # bindsym $mod+Shift+c reload
