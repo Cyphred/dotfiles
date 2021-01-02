@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
 Plug 'tomasiser/vim-code-dark'
+Plug 'preservim/tagbar'
 
 " Initializes plugin system
 call plug#end()
@@ -33,4 +34,7 @@ let g:lightline = {
 
 " NERDTree
 map <C-o> :NERDTreeToggle<CR>
+
+" [tagbar]
+nmap <C-\> :TagbarToggle<CR>
 
