@@ -8,8 +8,7 @@
 # Activates vi mode with <Escape>:
 set -o vi
 
-# export PS1="[\[\e[0;93m\]\u\[\e[0m\]@\[\e[0;91m\]\h\[\e[0;94m\] \W\]\e[0m\]] \$ "
-export PS1="\e[1m[\[\e[1;33m\]\u\[\e[1;0m\]\e[1;34m@\[\e[1;31m\]\h\[\e[1;32m\] \W\]\e[0m\]\e[1m] \e[0m\$ "
+PS1='\e[107;1;30m[\u@\h \W]\e[0m\$ '
 # PS1='[\u@\h \W]\$ '
 export EDITOR=/usr/bin/vim
 export TERMINAL=/usr/local/bin/st
