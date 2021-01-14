@@ -18,6 +18,8 @@ set background=dark
 highlight LineNr ctermfg=4
 highlight CursorLineNr ctermfg=4
 
+map <C-p> "+y
+
 " [GitGutter]
 " https://github.com/airblade/vim-gitgutter
 function! GitStatus()
@@ -32,7 +34,7 @@ let g:lightline = {
 	\ 'colorscheme': 'powerline',
 	\ }
 
-" NERDTree
+" [NERDTree]
 map <C-o> :NERDTreeToggle<CR>
 
 " [tagbar]
