@@ -16,7 +16,7 @@ outputToStatusbar() {
 }
 
 printMessage() {
-	message="📋 $(generate $1)\n"
+	message="📋 $(generate $1) pending\n"
 	[ "$2" -gt 0 ] && message+="⌛ $(generate $2) due today\n"
 	[ "$3" -gt 0 ] && message+="🔴 $(generate $2) overdue"
 	notify-send "📋 Task module" "$message" 
@@ -35,9 +35,19 @@ dueToday=0
 tasks=$(task list | awk 'END {print $(NF-1)}')
 if [ "$tasks" -gt 0 ]; then
 	overdueOutput=$(task overdue)
+	
+	# count overdue tasks that are due today
 	dueToday=$(printf "$overdueOutput" | grep $(date +%Y-%m-%d) | wc -l)
+
+	# count total overdue tasks, regardless if it's due today
 	overdue=$(printf "$overdueOutput" | awk 'END {print $(NF-1)}')
+
+	# subtract number of overdue tasks from the total task count
+	let tasks=$tasks-$overdue
+
+	# subtract tasks due today from the total overdue count
 	[ "$dueToday" -gt 0 ] && let overdue=$overdue-$dueToday
+
 	outputToStatusbar $tasks $dueToday $overdue
 else
 	outputToStatusbar 0
