@@ -16,6 +16,7 @@
 # exec --no-startup-id xautolock -time 20 -locker $SCRIPTS/i3lock.sh
 exec --no-startup-id transmission-daemon
 exec --no-startup-id $SCRIPTS/dock-on-startup.sh
+exec --no-startup-id workrave
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
@@ -222,7 +223,7 @@ bindsym $mod+t layout toggle split
 
 # change tiling orientation
 bindsym $mod+v split v ; exec --no-startup-id notify-send 'Vertical tiling'
-bindsym $mod+Shift+v split h ; exec --no-startup-id notify-send 'Horizontal tiling'
+bindsym $mod+b split h ; exec --no-startup-id notify-send 'Horizontal tiling'
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
