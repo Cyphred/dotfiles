@@ -17,3 +17,5 @@ while true; do
 done
 
 notify-send -u critical "You are back online" "A response from $addr has been received."
+# Play sounds to catch your attention
+[ ! -z "$1" ] && mpv $1
