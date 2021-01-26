@@ -7,10 +7,13 @@
 outputToStatusbar() {
 	output="📋$1"
 	# Due today
-	[ ! -z "$2" ] && [ "$2" -gt 0 ] && output+=" ⌛$2"
+	[ "$2" -gt 0 ] && output+=" ⌛$2"
 
 	# Overdue
-	[ ! -z "$3" ] && [ "$3" -gt 0 ] && output+=" 🔴$3"
+	[ "$3" -gt 0 ] && output+=" 🔴$3"
+
+	# Video Meetings
+	[ "$4" -gt 0 ] && output+=" 📽️$4"
 
 	printf "$output\n"
 }
@@ -18,7 +21,9 @@ outputToStatusbar() {
 printMessage() {
 	message="📋 $(generate $1) pending\n"
 	[ "$2" -gt 0 ] && message+="⌛ $(generate $2) due today\n"
-	[ "$3" -gt 0 ] && message+="🔴 $(generate $2) overdue"
+	[ "$3" -gt 0 ] && message+="🔴 $(generate $3) overdue\n"
+	[ "$4" -gt 1 ] && message+="📽️ $4 video meetings today"
+	[ "$4" == 1 ] && message+="📽️ 1 video meeting today"
 	notify-send "📋 Task module" "$message" 
 }
 
@@ -42,13 +47,17 @@ if [ "$tasks" -gt 0 ]; then
 	# count total overdue tasks, regardless if it's due today
 	overdue=$(printf "$overdueOutput" | awk 'END {print $(NF-1)}')
 
+	# count number of video meetings due today
+	videoMeetings=$(printf "$overdueOutput" | grep $(date +%Y-%m-%d) | grep "VideoMeeting" | wc -l)
+	
 	# subtract number of overdue tasks from the total task count
 	let tasks=$tasks-$overdue
 
 	# subtract tasks due today from the total overdue count
 	[ "$dueToday" -gt 0 ] && let overdue=$overdue-$dueToday
+	[ "$videoMeetings" -gt 0 ] && let dueToday=$dueToday-$videoMeetings
 
-	outputToStatusbar $tasks $dueToday $overdue
+	outputToStatusbar $tasks $dueToday $overdue $videoMeetings
 else
 	outputToStatusbar 0
 fi
@@ -56,5 +65,5 @@ fi
 [ -z "$overdue" ] && overdue=0
 
 case $BLOCK_BUTTON in
-	1) printMessage $tasks $dueToday $overdue;;
+	1) printMessage $tasks $dueToday $overdue $videoMeetings;;
 esac
