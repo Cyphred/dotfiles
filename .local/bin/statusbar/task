@@ -35,34 +35,36 @@ generate() {
 	esac
 }
 
-overdue=0
-dueToday=0
-tasks=$(task list | awk 'END {print $(NF-1)}')
+taskOutput=$(task list)
+printf "$taskOutput" | grep "No matches" || tasks=$(task list | awk 'END {print $(NF-1)}')
+
 if [ "$tasks" -gt 0 ]; then
 	overdueOutput=$(task overdue)
+	todayOutput=$(task due:today)
 	
 	# count overdue tasks that are due today
-	dueToday=$(printf "$overdueOutput" | grep $(date +%Y-%m-%d) | wc -l)
+	dueToday=$(printf "$todayOutput" | awk 'END {print $(NF-1)}')
 
 	# count total overdue tasks, regardless if it's due today
 	overdue=$(printf "$overdueOutput" | awk 'END {print $(NF-1)}')
 
 	# count number of video meetings due today
-	videoMeetings=$(printf "$overdueOutput" | grep $(date +%Y-%m-%d) | grep "VideoMeeting" | wc -l)
+	videoMeetings=$(printf "$todayOutput" | grep "VideoMeeting" | wc -l)
 	
-	# subtract number of overdue tasks from the total task count
-	let tasks=$tasks-$overdue
-
 	# subtract tasks due today from the total overdue count
-	[ "$dueToday" -gt 0 ] && let overdue=$overdue-$dueToday
+	[ "$dueToday" -gt 0 ] && let overdue=$overdue-$(printf "$overdueOutput" | grep "$(date +%Y-%m-%d)" | wc -l)
+
+	# subtract video meetings from the total tasks due today count
 	[ "$videoMeetings" -gt 0 ] && let dueToday=$dueToday-$videoMeetings
+
+	# subtract number of overdue, due today tasks and video meetings from the total task count
+	let totalActiveTasks=$overdue+$dueToday+$videoMeetings
+	let tasks=$tasks-$totalActiveTasks
 
 	outputToStatusbar $tasks $dueToday $overdue $videoMeetings
 else
 	outputToStatusbar 0
 fi
-
-[ -z "$overdue" ] && overdue=0
 
 case $BLOCK_BUTTON in
 	1) printMessage $tasks $dueToday $overdue $videoMeetings;;
