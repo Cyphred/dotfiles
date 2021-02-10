@@ -9,7 +9,8 @@ if [[ $1 == "--type" ]]; then
 fi
 
 prefix=${PASSWORD_STORE_DIR-~/.password-store}
-password_files=( "$prefix"/**/*-otp.gpg )
+password_files=( "$prefix"/**/*.gpg )
+password_files=( $(printf '%s\n' "${password_files[@]}" | sed '/-otp.gpg/d') )
 password_files=( "${password_files[@]#"$prefix"/}" )
 password_files=( "${password_files[@]%.gpg}" )
 
@@ -17,9 +18,14 @@ password=$(printf '%s\n' "${password_files[@]}" | dmenu "$@")
 
 [[ -n $password ]] || exit
 
+pass_cmd=show
+if echo "$password" | grep "\-otp$" ; then
+    pass_cmd=otp
+fi
+
 if [[ $typeit -eq 0 ]]; then
-	pass otp -c "$password" 2>/dev/null
+	pass $pass_cmd -c "$password" 2>/dev/null
 else
-	pass otp "$password" | { IFS= read -r pass; printf %s "$pass"; } |
+	pass $pass_cmd "$password" | { IFS= read -r pass; printf %s "$pass"; } |
 		xdotool type --clearmodifiers --file -
 fi
