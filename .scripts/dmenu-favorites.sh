@@ -1,25 +1,26 @@
 # !/bin/sh
 # A simple menu for opening my frequent folders in ranger
 
-INPUT=$(printf "notes\nschool\nbooks\nanime\ntv\nmovies" | dmenu)
+INPUT=$(printf "notes\nschool\nbooks\nanime\ntv\nmovies\ndownloads" | dmenu)
+data_dir=/run/media/cyphred/Shared
 
 case $INPUT in
 	"notes")
-		$TERMINAL -e ranger ~/Shared/notes
+		$TERMINAL -e ranger $data_dir/notes
 		;;
 	"school")
-		$TERMINAL -e ranger ~/Shared/school
+		$TERMINAL -e ranger $data_dir/school
 		;;
 	"books")
-		$TERMINAL -e ranger ~/Shared/Books
+		$TERMINAL -e ranger $data_dir/Books
 		;;
 	"anime")
-		$TERMINAL -e ranger ~/Shared/Anime
+		$TERMINAL -e ranger $data_dir/Anime
 		;;
 	"tv")
-		$TERMINAL -e ranger ~/Shared/TV
+		$TERMINAL -e ranger $data_dir/TV
 		;;
 	"movies")
-		$TERMINAL -e ranger ~/Shared/Movies
+		$TERMINAL -e ranger $data_dir/Movies
 		;;
 esac
