@@ -16,7 +16,7 @@
 # exec --no-startup-id xautolock -time 20 -locker $SCRIPTS/i3lock.sh
 exec --no-startup-id transmission-daemon
 exec --no-startup-id $SCRIPTS/dock-on-startup.sh
-exec --no-startup-id workrave
+exec --no-startup-id $SCRIPTS/workrave-normal-mode-start.sh
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
