@@ -23,3 +23,5 @@ map [index] H navigate_index collapse-all
 map [index] I navigate_index expand-all
 
 set selection-clipboard clipboard
+set font "noto sans mono 9"
+set default-bg "#e0e0e0"
