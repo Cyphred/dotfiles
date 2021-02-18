@@ -12,15 +12,15 @@ case $INPUT in
 		$TERMINAL -e ranger $data_dir/school
 		;;
 	"books")
-		$TERMINAL -e ranger $data_dir/Books
+		$TERMINAL -e ranger $data_dir/books
 		;;
 	"anime")
-		$TERMINAL -e ranger $data_dir/Anime
+		$TERMINAL -e ranger $data_dir/anime
 		;;
 	"tv")
-		$TERMINAL -e ranger $data_dir/TV
+		$TERMINAL -e ranger $data_dir/tv
 		;;
 	"movies")
-		$TERMINAL -e ranger $data_dir/Movies
+		$TERMINAL -e ranger $data_dir/movies
 		;;
 esac
