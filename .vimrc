@@ -46,3 +46,5 @@ map <C-o> :NERDTreeToggle<CR>
 " [tagbar]
 nmap <C-\> :TagbarToggle<CR>
 
+" [YouCompleteMe]
+highlight Pmenu ctermfg=235 ctermbg=253
