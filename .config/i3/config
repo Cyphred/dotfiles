@@ -284,7 +284,7 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 
 # Start Applications
 bindsym $mod+Ctrl+m exec --no-startup-id pavucontrol
-bindsym $mod+F1 exec --no-startup-id $SCRIPTS/dmenu-favorites.sh
+bindsym $mod+F1 exec --no-startup-id $SCRIPTS/dmenu-shared-drive.sh
 bindsym $mod+F2 exec --no-startup-id firefox
 bindsym $mod+F3 exec --no-startup-id $TERMINAL -e ranger
 bindsym $mod+F11 exec --no-startup-id $SCRIPTS/colemak-layout-switch.sh
