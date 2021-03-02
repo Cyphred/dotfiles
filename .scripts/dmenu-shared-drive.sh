@@ -9,11 +9,7 @@ input=$(echo "${folders[@]}" | sed 's/\ /\n/g' | dmenu)
 if [ -z "$input" ]; then
 	exit 1
 elif [ "$input" == "school" ]; then
-	school_dirs=( $(ls -d $data_dir/school/*/) )
-	school_dirs=( "${school_dirs[@]#"$data_dir"/school/}" )
-	school_dirs=( "${school_dirs[@]%/}" )
-	option=$(printf '%s\n' "${school_dirs[@]}" | dmenu -l 20)
-	$TERMINAL -e ranger $data_dir/school/$option
+	$SCRIPTS/dmenu-school-folder.sh
 
 elif [ -d "$data_dir/$input" ]; then
 	$TERMINAL -e ranger $data_dir/$input
