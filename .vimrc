@@ -11,6 +11,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
 Plug 'tomasiser/vim-code-dark'
 Plug 'preservim/tagbar'
+Plug 'NLKNguyen/papercolor-theme'
 
 " Initializes plugin system
 call plug#end()
@@ -21,10 +22,13 @@ set relativenumber
 set autoindent
 set cursorline
 set background=dark
+colorscheme PaperColor
 highlight LineNr ctermfg=4
 highlight CursorLineNr ctermfg=4
 
 map <C-p> "+y
+
+" [Papercolor Theme]
 
 " [GitGutter]
 " https://github.com/airblade/vim-gitgutter
