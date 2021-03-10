@@ -1,0 +1,71 @@
+# !/bin/sh
+
+# Prints number of all tasks, and overdue ones.
+# Total number of tasks has emoji 📋
+# Number of overdue tasks has emoji ⌛
+
+outputToStatusbar() {
+	output="📋$1"
+	# Due today
+	[ "$2" -gt 0 ] && output+=" ⌛$2"
+
+	# Overdue
+	[ "$3" -gt 0 ] && output+=" 🔴$3"
+
+	# Video Meetings
+	[ "$4" -gt 0 ] && output+=" 📽️$4"
+
+	printf "$output\n"
+}
+
+printMessage() {
+	message="📋 $(generate $1) pending\n"
+	[ "$2" -gt 0 ] && message+="⌛ $(generate $2) due today\n"
+	[ "$3" -gt 0 ] && message+="🔴 $(generate $3) overdue\n"
+	[ "$4" -gt 1 ] && message+="📽️ $4 video meetings today"
+	[ "$4" == 1 ] && message+="📽️ 1 video meeting today"
+	notify-send "📋 Task module" "$message" 
+}
+
+generate() {
+	case $1 in
+		0) printf "No tasks" ;;
+		1) printf "1 task" ;;
+		*) printf "$1 tasks" ;;
+	esac
+}
+
+taskOutput=$(task list)
+printf "$taskOutput" | grep "No matches" || tasks=$(task list | awk 'END {print $(NF-1)}')
+
+if [ "$tasks" -gt 0 ]; then
+	overdueOutput=$(task overdue)
+	todayOutput=$(task due:today)
+	
+	# count overdue tasks that are due today
+	dueToday=$(printf "$todayOutput" | awk 'END {print $(NF-1)}')
+
+	# count total overdue tasks, regardless if it's due today
+	overdue=$(printf "$overdueOutput" | awk 'END {print $(NF-1)}')
+
+	# count number of video meetings due today
+	videoMeetings=$(printf "$todayOutput" | grep "VideoMeeting" | wc -l)
+	
+	# subtract tasks due today from the total overdue count
+	[ "$dueToday" -gt 0 ] && let overdue=$overdue-$(printf "$overdueOutput" | grep "$(date +%Y-%m-%d)" | wc -l)
+
+	# subtract video meetings from the total tasks due today count
+	[ "$videoMeetings" -gt 0 ] && let dueToday=$dueToday-$videoMeetings
+
+	# subtract number of overdue, due today tasks and video meetings from the total task count
+	let totalActiveTasks=$overdue+$dueToday+$videoMeetings
+	let tasks=$tasks-$totalActiveTasks
+
+	outputToStatusbar $tasks $dueToday $overdue $videoMeetings
+else
+	outputToStatusbar 0
+fi
+
+case $BLOCK_BUTTON in
+	1) printMessage $tasks $dueToday $overdue $videoMeetings;;
+esac

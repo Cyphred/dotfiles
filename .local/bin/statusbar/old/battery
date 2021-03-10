@@ -17,5 +17,5 @@ case $BLOCK_BUTTON in
 esac
 
 # acpi alternative
-acpi | sed "s/Battery [0-9]: //;s/[Dd]ischarging, / /;s/[Nn]ot charging, / /;s/[Cc]harging, / /;s/[Uu]nknown, / /;s/[Ff]ull, / /;s/ \(remaining\|until charged\)//"; exit
+acpi | sed "s/Battery [0-9]: //;s/[Dd]ischarging, /🔋/;s/[Nn]ot charging, /🛑/;s/[Cc]harging, /🔌/;s/[Uu]nknown, /♻️/;s/[Ff]ull, /⚡/;s/ \(remaining\|until charged\)//"; exit
 

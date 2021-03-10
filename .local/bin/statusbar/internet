@@ -14,9 +14,17 @@ case $BLOCK_BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-case "$(cat /sys/class/net/wlp4s0/operstate 2>/dev/null)" in
-	down) wifi="📡" ;;
-	up) wifi="$(awk '/^\s*w/ { print "📶", int($3 * 100 / 70) "%" }' /proc/net/wireless)"
-esac
+if [ "$(cat /sys/class/net/wlp4s0/operstate 2>/dev/null)" == "up" ]; then
+	wifi="$(awk '/^\s*w/ { print "", int($3 * 100 / 70) "%" }' /proc/net/wireless)"
+fi
 
-printf "%s%s\n" "$(sed "s/down/❎/g;s/up/🌐/g" /sys/class/net/enp0s25/operstate 2>/dev/null)" "$wifi"
+if [ "$(cat /sys/class/net/enp0s25/operstate 2>/dev/null)" == "up" ]; then
+	eth=""
+fi
+
+if [ -z "$wifi" ] && [ -z "$eth" ]; then
+	printf "\n"
+else
+	[ ! -z "$wifi" ] && [ ! -z "$eth" ] && spacer=" "
+	printf "%s%s%s\n" "$eth" "$spacer" "$wifi"
+fi
