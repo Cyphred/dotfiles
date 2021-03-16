@@ -12,7 +12,7 @@ _determine_quiet_mode() {
 
 _determine_address() {
 	default_addr="8.8.8.8"
-	[ -z "$2" ] && addr="$default_addr" || addr="$2"
+	[ -z "$1" ] && addr="$default_addr" || addr="$1"
 }
 
 _create_log_file() {
@@ -34,7 +34,7 @@ _create_log_file
 _log_event "START"
 last_status=0
 while true; do
-	if ping -c 1 $addr; then
+	if ping -I enp0s25 -c 1 $addr; then
 		[ "$last_status" == 0 ] && _log_event "UP"
 		last_status=1
 	else
