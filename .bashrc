@@ -57,3 +57,8 @@ alias favorites='$SCRIPTS/dmenu-shared-drive.sh'
 alias lock='$SCRIPTS/i3lock.sh'
 alias zzz='$SCRIPTS/i3lock.sh & systemctl suspend'
 alias die='systemctl poweroff'
+
+# Arduino shortcuts (temporary)
+alias compile='arduino-cli compile -b arduino:avr:nano:cpu=atmega328old'
+alias upload='arduino-cli upload -b arduino:avr:nano:cpu=atmega328old -v -p $1'
+
