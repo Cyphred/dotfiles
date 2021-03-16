@@ -5,15 +5,15 @@
 # Number of overdue tasks has emoji ⌛
 
 outputToStatusbar() {
-	output="📋$1"
+	output=" $1"
 	# Due today
-	[ "$2" -gt 0 ] && output+=" ⌛$2"
+	[ "$2" -gt 0 ] && output+="  $2"
 
 	# Overdue
-	[ "$3" -gt 0 ] && output+=" 🔴$3"
+	[ "$3" -gt 0 ] && output+="  $3"
 
 	# Video Meetings
-	[ "$4" -gt 0 ] && output+=" 📽️$4"
+	[ "$4" -gt 0 ] && output+=" 📽️ $4"
 
 	printf "$output\n"
 }
