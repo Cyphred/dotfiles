@@ -1,0 +1,5 @@
+URxvt.font:                xft:Noto Sans Mono:pixelsize=16
+URxvt.boldFont:            xft:Noto Sans Mono:pixelsize=16:bold
+URxvt.italicFont:          xft:Noto Sans Mono:pixelsize=16:italic
+URxvt.boldItalicFont:      xft:Noto Sans Mono:pixelsize=16:bold:italic
+URxvt.letterSpace:         -1
