@@ -41,13 +41,5 @@ picom &
 # Set the wallpaper
 feh --bg-fill ~/.wallpaper &
 
-## Start generating dwm status bar content
-#while true; do
-#	xsetroot -name "$(~/./.statusbar)"
-#	sleep 1
-#done &
-#
 ## Start dwm
-#exec dwm
-
-exec i3
+exec dwm
