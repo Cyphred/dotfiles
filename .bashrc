@@ -8,8 +8,7 @@
 # Activates vi mode with <Escape>:
 set -o vi
 
-# export PS1="[\[\e[0;93m\]\u\[\e[0m\]@\[\e[0;91m\]\h\[\e[0;94m\] \W\]\e[0m\]] \$ "
-export PS1="\e[1m[\[\e[1;33m\]\u\[\e[1;0m\]\e[1;34m@\[\e[1;31m\]\h\[\e[1;32m\] \W\]\e[0m\]\e[1m] \e[0m\$ "
+PS1='\[\e[1m\][\[\e[1;33m\]\u\[\e[1;34m\]@\[\e[1;31m\]\h \[\e[1;32m\]\W\[\e[1;37m\]] \$\[\e[0m\] '
 # PS1='[\u@\h \W]\$ '
 
 # Disables highlights for directories owned by root
@@ -21,7 +20,7 @@ export WALLPAPER=~/.wallpaper
 export SCRIPTS=~/.scripts/
 export SCREENSHOTS=~/Pictures/Screenshots/
 export SCREENLAYOUT=~/.screenlayout/
-export BROWSER=/usr/bin/firefox
+export BROWSER=/usr/bin/librewolf
 export BROWSER_SECONDARY=/usr/bin/chromium
 
 # Sets the alias for the home directory (for tracking dotfiles)
@@ -57,6 +56,7 @@ alias favorites='$SCRIPTS/dmenu-shared-drive.sh'
 alias lock='$SCRIPTS/i3lock.sh'
 alias zzz='$SCRIPTS/i3lock.sh & systemctl suspend'
 alias die='systemctl poweroff'
+alias bmks='$HOME/.bmks/bmks'
 
 # Arduino shortcuts (temporary)
 alias compile='arduino-cli compile -b arduino:avr:nano:cpu=atmega328old'
