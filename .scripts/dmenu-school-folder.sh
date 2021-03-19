@@ -1,7 +1,7 @@
 # !/bin/sh
 # Shows a menu for browsing through the school folder
 
-data_dir="/run/media/cyphred/Shared"
+data_dir="$HOME"
 if [ ! -d "$data_dir/school/" ]; then
 	notify-send -u critical "school folder not found" "Could not locate $data_dir/school/."
 	exit 1
