@@ -19,22 +19,15 @@ export TERMINAL=/usr/local/bin/st
 export WALLPAPER=~/.wallpaper
 export SCRIPTS=~/.scripts/
 export SCREENSHOTS=~/Pictures/Screenshots/
-export SCREENLAYOUT=~/.screenlayout/
 export BROWSER=/usr/bin/librewolf
-export BROWSER_SECONDARY=/usr/bin/chromium
+export BOOKMARKS=$HOME/.bmks/
 
 # Sets the alias for the home directory (for tracking dotfiles)
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 alias ls='ls --color=auto'
-alias sx='cd ~/ && startx'
-alias ckb='setxkbmap us -variant colemak'
-alias shs='cd $CUSTOMSCRIPTS'
 alias torrent='pidof transmission-daemon || transmission daemon ; tremc'
-alias setbg='feh --bg-fill ~/.wallpaper'
 alias netwatch='$SCRIPTS/internet-watchdog.sh'
-alias powersaver='$SCRIPTS/powersaver-mode.sh'
-alias battlog='$SCRIPTS/log-battery-stats.sh'
 alias killwin='$SCRIPTS/kill-on-click.sh'
 alias ytm4a='$SCRIPTS/dl-m4a.sh'
 alias ytmp3='$SCRIPTS/dl-mp3.sh'
@@ -50,15 +43,16 @@ alias nth='$SCRIPTS/new-terminal.sh'
 alias mkv2mp4='$SCRIPTS/convert-mkv-to-mp4.sh'
 alias mtp='$SCRIPTS/dmenu-android-mounting.sh'
 alias autodock='$SCRIPTS/dock-on-startup.sh'
-alias dock='$SCREENLAYOUT/dual-dock-h.sh'
-alias undock='$SCREENLAYOUT/undock.sh'
+alias dock='$SCRIPTS/dock.sh'
+alias undock='$SCRIPTS/dock.sh undock'
 alias favorites='$SCRIPTS/dmenu-shared-drive.sh'
 alias lock='$SCRIPTS/i3lock.sh'
 alias zzz='$SCRIPTS/i3lock.sh & systemctl suspend'
 alias die='systemctl poweroff'
 alias bmks='$HOME/.bmks/bmks'
+alias lazy='less $HOME/notes/lazyman.md'
 
 # Arduino shortcuts (temporary)
 alias compile='arduino-cli compile -b arduino:avr:nano:cpu=atmega328old'
 alias upload='arduino-cli upload -b arduino:avr:nano:cpu=atmega328old -v -p $1'
-
+alias smon='minicom -D $1 -b $2'
