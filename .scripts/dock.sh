@@ -40,7 +40,8 @@ _auto() {
 	else
 		layout="internal"
 		_internal
-	fi
+	fi && \
+	_set_wallpaper
 }
 
 _set_wallpaper() {
