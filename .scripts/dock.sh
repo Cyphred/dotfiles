@@ -26,17 +26,22 @@ _single() {
 }
 
 # Dual monitors
-_dual() {
-	layout="dual"
+_dual_horizontal() {
+	layout="dual-h"
 	xrandr --output LVDS1 --mode 1366x768 --pos 1920x421 --rotate normal --output DP1 --off --output DP2 --off --output DP3 --off --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI2 --off --output HDMI3 --off --output VGA1 --off --output VIRTUAL1 --off
 	_notify_success || _notify_error
+}
+
+_dual_vertical() {
+	layout="dual-v"
+	xrandr --output LVDS1 --mode 1366x768 --pos 277x1080 --rotate normal --output DP1 --off --output DP2 --off --output DP3 --off --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI2 --off --output HDMI3 --off --output VGA1 --off --output VIRTUAL1 --off
 }
 
 # Automatically chooses the default layout if no parameters were specified
 _auto() {
 	if xrandr | grep "HDMI1 connected"; then
-		layout="dual"
-		_dual
+		layout="dual-h"
+		_dual_horizontal
 	else
 		layout="internal"
 		_internal
@@ -60,7 +65,13 @@ _set_wallpaper() {
 
 input=${1,,} # Make the input lowercase
 case $input in
-	"dual") _dual ;;
+	"dual")
+		if [ "$2" == "vertical" ]; then
+			_dual_vertical
+		elif [ "$2" == "horizontal" ]; then
+			_dual_horizontal
+		fi
+		;;
 	"single") _single ;;
 	"undock") _internal ;;
 	"internal") _internal ;;
