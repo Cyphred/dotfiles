@@ -2,7 +2,7 @@
 # A simple menu for opening my shared drive's folders
 
 folders=( books dev documents downloads notes picutres school torrents )
-data_dir="/run/media/cyphred/Shared"
+data_dir="$HOME"
 
 input=$(echo "${folders[@]}" | sed 's/\ /\n/g' | dmenu)
 
