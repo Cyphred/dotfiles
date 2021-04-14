@@ -1,6 +1,8 @@
 # !/bin/sh
 
 ip=$(ip route get 1 | awk '{print $(NF-2)}')
+w_device="wlan0"
+e_device="enp0s25"
 
 case $BLOCK_BUTTON in
 	1) "$TERMINAL" -e nmtui; pkill -RTMIN+4 dwmblocks ;;
@@ -14,11 +16,11 @@ case $BLOCK_BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-if [ "$(cat /sys/class/net/wlp4s0/operstate 2>/dev/null)" == "up" ]; then
+if [ "$(cat /sys/class/net/$w_device/operstate 2>/dev/null)" == "up" ]; then
 	wifi="$(awk '/^\s*w/ { print "", int($3 * 100 / 70) "%" }' /proc/net/wireless)"
 fi
 
-if [ "$(cat /sys/class/net/enp0s25/operstate 2>/dev/null)" == "up" ]; then
+if [ "$(cat /sys/class/net/$e_device/operstate 2>/dev/null)" == "up" ]; then
 	eth=""
 fi
 
