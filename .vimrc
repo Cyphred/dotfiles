@@ -12,6 +12,7 @@ Plug 'preservim/nerdtree'
 Plug 'tomasiser/vim-code-dark'
 Plug 'preservim/tagbar'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'airblade/vim-gitgutter'
 
 " Initializes plugin system
 call plug#end()
