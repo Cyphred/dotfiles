@@ -47,8 +47,9 @@ alias dock='$SCRIPTS/dock.sh'
 alias undock='$SCRIPTS/dock.sh undock'
 alias favorites='$SCRIPTS/dmenu-shared-drive.sh'
 alias lock='$SCRIPTS/i3lock.sh'
-alias zzz='$SCRIPTS/i3lock.sh & systemctl suspend'
-alias die='systemctl poweroff'
+alias zzz='$SCRIPTS/i3lock.sh & sleep 1 && sudo zzz'
+alias die='sudo poweroff'
+alias reboot='sudo reboot'
 alias bmks='$HOME/.bmks/bmks'
 
 # Frequent files/documents
