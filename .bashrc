@@ -51,6 +51,7 @@ alias zzz='$SCRIPTS/i3lock.sh & sleep 1 && sudo zzz'
 alias die='sudo poweroff'
 alias reboot='sudo reboot'
 alias bmks='$HOME/.bmks/bmks'
+alias qr='$SCRIPTS/scrot-zbarimg.sh'
 
 # Frequent files/documents
 alias sched='sxiv $HOME/sched.png'
