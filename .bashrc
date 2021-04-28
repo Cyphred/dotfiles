@@ -20,6 +20,7 @@ export WALLPAPER=~/.wallpaper
 export SCRIPTS=~/.scripts/
 export SCREENSHOTS=~/Pictures/Screenshots/
 export BROWSER=/usr/bin/librewolf
+export BROWSER_SECONDARY=/usr/bin/brave
 export BOOKMARKS=$HOME/.bmks/
 
 # Sets the alias for the home directory (for tracking dotfiles)
@@ -46,12 +47,18 @@ alias autodock='$SCRIPTS/dock-on-startup.sh'
 alias dock='$SCRIPTS/dock.sh'
 alias undock='$SCRIPTS/dock.sh undock'
 alias favorites='$SCRIPTS/dmenu-shared-drive.sh'
-alias lock='$SCRIPTS/i3lock.sh'
-alias zzz='$SCRIPTS/i3lock.sh & sleep 1 && sudo zzz'
-alias die='sudo poweroff'
-alias reboot='sudo reboot'
 alias bmks='$HOME/.bmks/bmks'
 alias qr='$SCRIPTS/scrot-zbarimg.sh'
+
+# Internet needed
+alias weather='$SCRIPTS/wttr.sh'
+
+# Power aliases
+alias lock='$SCRIPTS/i3lock.sh'
+alias zzz='$SCRIPTS/i3lock.sh & sleep 1 && loginctl suspend'
+alias ZZZ='$SCRIPTS/i3lock.sh & sleep 1 && loginctl hibernate'
+alias die='loginctl poweroff'
+alias reboot='loginctl reboot'
 
 # Frequent files/documents
 alias sched='sxiv $HOME/sched.png'
