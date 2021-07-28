@@ -44,13 +44,15 @@ alias nth='$SCRIPTS/new-terminal.sh'
 alias mkv2mp4='$SCRIPTS/convert-mkv-to-mp4.sh'
 alias mtp='$SCRIPTS/dmenu-android-mounting.sh'
 alias autodock='$SCRIPTS/dock-on-startup.sh'
-alias dock='$SCRIPTS/dock.sh'
-alias undock='$SCRIPTS/dock.sh undock'
 alias favorites='$SCRIPTS/dmenu-shared-drive.sh'
 alias bmks='$HOME/.bmks/bmks'
 alias qr='$SCRIPTS/scrot-zbarimg.sh'
 alias scim='sc-im'
 alias httpsrv='python -m http.server'
+
+# Docking shortcuts
+alias dock='$SCRIPTS/dock.sh'
+alias undock='$SCRIPTS/dock.sh undock'
 
 # Internet needed
 alias weather='$SCRIPTS/wttr.sh'
@@ -70,13 +72,8 @@ alias tpup='vim $HOME/notes/thinkpad-upgrade-notes.md'
 alias spend='libreoffice $HOME/documents/household-expenses.ods & disown'
 alias giveup='mpv $HOME/videos/never-give-up.mkv'
 
-# Surf aliases
-alias discord='chromium https://discord.com/app & disown'
-alias messenger='chromium https://messenger.com/ & disown'
-
 # Arduino shortcuts (temporary)
-alias avrscr='cd $HOME/dev/arduino-scratch'
-alias run='$SCRIPTS/arduino-compile-and-run.sh'
-alias compile='arduino-cli compile -b arduino:avr:nano:cpu=atmega328old'
-alias upload='arduino-cli compile -b arduino:avr:nano:cpu=atmega328old && arduino-cli upload -b arduino:avr:nano:cpu=atmega328old -v -p $1'
-alias plot='python $HOME/dev/boom-buoy/src/console/Plot.py'
+# TODO create proper arduino compile scripts
+# alias run='$SCRIPTS/arduino-compile-and-run.sh'
+# alias compile='arduino-cli compile -b arduino:avr:nano:cpu=atmega328old'
+# alias upload='arduino-cli compile -b arduino:avr:nano:cpu=atmega328old && arduino-cli upload -b arduino:avr:nano:cpu=atmega328old -v -p $1'
