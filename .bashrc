@@ -19,8 +19,8 @@ export TERMINAL=/usr/local/bin/st
 export WALLPAPER=~/.wallpaper
 export SCRIPTS=~/.scripts/
 export SCREENSHOTS=~/Pictures/Screenshots/
-export BROWSER=/usr/bin/librewolf
-export BROWSER_SECONDARY=/usr/bin/brave
+export BROWSER=/usr/bin/brave
+export BROWSER_SECONDARY=/usr/bin/librewolf
 export BOOKMARKS=$HOME/.bmks/
 
 # Sets the alias for the home directory (for tracking dotfiles)
@@ -49,12 +49,15 @@ alias undock='$SCRIPTS/dock.sh undock'
 alias favorites='$SCRIPTS/dmenu-shared-drive.sh'
 alias bmks='$HOME/.bmks/bmks'
 alias qr='$SCRIPTS/scrot-zbarimg.sh'
+alias scim='sc-im'
+alias httpsrv='python -m http.server'
 
 # Internet needed
 alias weather='$SCRIPTS/wttr.sh'
 
 # Power aliases
 alias lock='$SCRIPTS/i3lock.sh'
+alias lightsout='xset dpms force off'
 alias zzz='$SCRIPTS/i3lock.sh & sleep 1 && loginctl suspend'
 alias ZZZ='$SCRIPTS/i3lock.sh & sleep 1 && loginctl hibernate'
 alias die='loginctl poweroff'
@@ -65,6 +68,7 @@ alias sched='sxiv $HOME/sched.png'
 alias lazy='less $HOME/notes/lazyman.md'
 alias tpup='vim $HOME/notes/thinkpad-upgrade-notes.md'
 alias spend='libreoffice $HOME/documents/household-expenses.ods & disown'
+alias giveup='mpv $HOME/videos/never-give-up.mkv'
 
 # Surf aliases
 alias discord='chromium https://discord.com/app & disown'
@@ -75,3 +79,4 @@ alias avrscr='cd $HOME/dev/arduino-scratch'
 alias run='$SCRIPTS/arduino-compile-and-run.sh'
 alias compile='arduino-cli compile -b arduino:avr:nano:cpu=atmega328old'
 alias upload='arduino-cli compile -b arduino:avr:nano:cpu=atmega328old && arduino-cli upload -b arduino:avr:nano:cpu=atmega328old -v -p $1'
+alias plot='python $HOME/dev/boom-buoy/src/console/Plot.py'
