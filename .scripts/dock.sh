@@ -21,25 +21,25 @@ _internal() {
 # External monitor only
 _single() {
 	layout="single"
-	xrandr --output LVDS1 --off --output DP1 --off --output DP2 --off --output DP3 --off --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI2 --off --output HDMI3 --off --output VGA1 --off --output VIRTUAL1 --off && \
+	xrandr --output LVDS1 --off --output DP1 --off --output DP2 --off --output DP3 --off --output HDMI1 --off --output HDMI2 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI3 --off --output VGA1 --off --output VIRTUAL1 --off && \
 	_notify_success || _notify_error
 }
 
 # Dual monitors
 _dual_horizontal() {
 	layout="dual-h"
-	xrandr --output LVDS1 --mode 1366x768 --pos 1920x421 --rotate normal --output DP1 --off --output DP2 --off --output DP3 --off --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI2 --off --output HDMI3 --off --output VGA1 --off --output VIRTUAL1 --off
+	xrandr --output LVDS1 --mode 1366x768 --pos 0x312 --rotate normal --output DP1 --off --output DP2 --off --output DP3 --off --output HDMI1 --off --output HDMI2 --primary --mode 1920x1080 --pos 1366x0 --rotate normal --output HDMI3 --off --output VGA1 --off --output VIRTUAL1 --off
 	_notify_success || _notify_error
 }
 
 _dual_vertical() {
 	layout="dual-v"
-	xrandr --output LVDS1 --mode 1366x768 --pos 277x1080 --rotate normal --output DP1 --off --output DP2 --off --output DP3 --off --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI2 --off --output HDMI3 --off --output VGA1 --off --output VIRTUAL1 --off
+	xrandr --output LVDS1 --mode 1366x768 --pos 277x1080 --rotate normal --output DP1 --off --output DP2 --off --output DP3 --off --output HDMI1 --off --output HDMI2 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI3 --off --output VGA1 --off --output VIRTUAL1 --off
 }
 
 # Automatically chooses the default layout if no parameters were specified
 _auto() {
-	if xrandr | grep "HDMI1 connected"; then
+	if xrandr | grep "HDMI2 connected"; then
 		layout="dual-h"
 		_dual_horizontal
 	else
