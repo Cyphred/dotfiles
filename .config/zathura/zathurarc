@@ -24,4 +24,7 @@ map [index] I navigate_index expand-all
 
 set selection-clipboard clipboard
 set font "noto sans mono 9"
-# set default-bg "#e0e0e0"
+set default-bg "#222222"
+
+set recolor-darkcolor "#9fafaf"
+set recolor-lightcolor "#222222"
