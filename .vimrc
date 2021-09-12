@@ -28,7 +28,7 @@ highlight LineNr ctermfg=4
 highlight CursorLineNr ctermfg=4
 
 " Makes background transparent
-hi Normal guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE
 
 map <C-p> "+y
 
