@@ -55,7 +55,7 @@ alias dock='$SCRIPTS/dock.sh'
 alias undock='$SCRIPTS/dock.sh undock'
 
 # Internet needed
-alias weather='$SCRIPTS/wttr.sh'
+alias weather='$SCRIPTS/weather.sh'
 
 # Power aliases
 alias lock='$SCRIPTS/i3lock.sh'
