@@ -62,15 +62,14 @@ alias lock='$SCRIPTS/i3lock.sh'
 alias off='xset dpms force off'
 alias zzz='$SCRIPTS/i3lock.sh & sleep 1 && loginctl suspend'
 alias ZZZ='$SCRIPTS/i3lock.sh & sleep 1 && loginctl hibernate'
-alias die='loginctl poweroff'
+alias die='$SCRIPTS/power-control/poweroff.sh'
 alias reboot='loginctl reboot'
 
 # Frequent files/documents
-alias sched='sxiv $HOME/sched.png'
+alias sched='sxiv $HOME/.sched'
 alias lazy='less $HOME/notes/lazyman.md'
-alias tpup='vim $HOME/notes/thinkpad-upgrade-notes.md'
-alias spend='libreoffice $HOME/documents/household-expenses.ods & disown'
 alias giveup='mpv $HOME/videos/never-give-up.mkv'
+alias jr='$HOME/journal/new-entry.sh'
 
 # Arduino shortcuts (temporary)
 # TODO create proper arduino compile scripts
