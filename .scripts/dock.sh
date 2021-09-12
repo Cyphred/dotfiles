@@ -37,11 +37,17 @@ _dual_vertical() {
 	xrandr --output LVDS1 --mode 1366x768 --pos 277x1080 --rotate normal --output DP1 --off --output DP2 --off --output DP3 --off --output HDMI1 --off --output HDMI2 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI3 --off --output VGA1 --off --output VIRTUAL1 --off
 }
 
+_dual_external() {
+	layout="dual-external"
+	xrandr --output LVDS1 --off --output DP1 --off --output DP2 --off --output DP3 --off --output HDMI1 --off --output HDMI2 --off --output HDMI3 --off --output VGA1 --mode 1440x900 --pos 0x0 --rotate normal --output VIRTUAL1 --off
+	xrandr --output LVDS1 --off --output DP1 --off --output DP2 --off --output DP3 --off --output HDMI1 --off --output HDMI2 --primary --mode 1920x1080 --pos 1440x0 --rotate normal --output HDMI3 --off --output VGA1 --mode 1440x900 --pos 0x180 --rotate normal --output VIRTUAL1 --off
+}
+
 # Automatically chooses the default layout if no parameters were specified
 _auto() {
 	if xrandr | grep "HDMI2 connected"; then
 		layout="dual-h"
-		_dual_horizontal
+		_dual_external
 	else
 		layout="internal"
 		_internal
