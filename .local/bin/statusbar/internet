@@ -2,7 +2,7 @@
 
 ip=$(ip route get 1 | awk '{print $(NF-2)}')
 w_device="wlp1s0"
-e_device="enp0s25"
+e_device="eth0"
 
 case $BLOCK_BUTTON in
 	1) "$TERMINAL" -e nmtui; pkill -RTMIN+4 dwmblocks ;;
