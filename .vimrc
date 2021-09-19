@@ -13,6 +13,7 @@ Plug 'tomasiser/vim-code-dark'
 Plug 'preservim/tagbar'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'airblade/vim-gitgutter'
+Plug 'altercation/vim-colors-solarized'
 
 " Initializes plugin system
 call plug#end()
@@ -22,10 +23,10 @@ set number
 set relativenumber
 set autoindent
 set cursorline
-set background=dark
-colorscheme PaperColor
-highlight LineNr ctermfg=4
-highlight CursorLineNr ctermfg=4
+set background=light
+colorscheme default
+"highlight LineNr ctermfg=4
+"highlight CursorLineNr ctermfg=4
 
 " Makes background transparent
 " hi Normal guibg=NONE ctermbg=NONE
