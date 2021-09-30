@@ -22,3 +22,7 @@ URxvt.color12:             #839496
 URxvt.color13:             #6c71c4
 URxvt.color14:             #93a1a1
 URxvt.color15:             #eee8d5
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.iso14755: false
+URxvt.iso14755_52: false
