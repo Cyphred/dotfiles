@@ -77,6 +77,7 @@ export SCREENSHOTS=~/Pictures/Screenshots/
 export BROWSER=/usr/bin/brave
 export BROWSER_SECONDARY=/usr/bin/librewolf
 export BOOKMARKS=$HOME/.bmks/
+export FILEMANAGER=/usr/bin/thunar
 
 # Sets the alias for the home directory (for tracking dotfiles)
 export WALLPAPER=~/.wallpaper
@@ -91,27 +92,20 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # Programs and utilities
 alias ls='ls --color=auto'
-alias torrent='pidof transmission-daemon || transmission daemon ; tremc'
-alias netwatch='$SCRIPTS/internet-watchdog.sh'
 alias killwin='$SCRIPTS/kill-on-click.sh'
 alias ytm4a='$SCRIPTS/dl-m4a.sh'
 alias ytmp3='$SCRIPTS/dl-mp3.sh'
 alias ss='$SCRIPTS/webcam-snapshot.sh'
 alias bm='bashmount'
-alias lofi='$SCRIPTS/lofi.sh'
 alias conf='$SCRIPTS/config-edit-menu.sh'
-alias shs='$SCRIPTS/script-menu.sh'
-alias deploy='$SCRIPTS/deploy-to-test-web-server.sh'
-alias laravel='$HOME/.config/composer/vendor/bin/laravel'
 alias nth='$SCRIPTS/new-terminal.sh'
 alias mkv2mp4='$SCRIPTS/convert-mkv-to-mp4.sh'
-alias mtp='$SCRIPTS/dmenu-android-mounting.sh'
 alias autodock='$SCRIPTS/dock-on-startup.sh'
-alias favorites='$SCRIPTS/dmenu-shared-drive.sh'
 alias bmks='$HOME/.bmks/bmks'
 alias qr='$SCRIPTS/scrot-zbarimg.sh'
 alias scim='sc-im'
 alias httpsrv='python -m http.server'
+alias glances='glances --theme-white'
 
 # Docking shortcuts
 alias dock='$SCRIPTS/dock.sh'
@@ -131,7 +125,7 @@ alias reboot='loginctl reboot'
 # Frequent files/documents
 alias sched='sxiv $HOME/.sched'
 alias lazy='less $HOME/notes/lazyman.md'
-alias giveup='mpv $HOME/videos/never-give-up.mkv'
+alias giveup='mpv $HOME/videos/never-give-up.mkv & disown'
 alias jr='$HOME/journal/new-entry.sh'
 
 # Arduino shortcuts (temporary)
