@@ -8,11 +8,6 @@
 # Activates vi mode with <Escape>:
 set -o vi
 
-color_yellow='\[\e[1;33m]'
-color_blue='\[\e[1;34m]'
-color_red='\[\e[1;31m]'
-color_green='\[\e[1;32m]'
-color_none='\[\e[0m]'
 # PS1='\[\e[1m\][\[\e[1;33m\]\u\[\e[1;34m\]@\[\e[1;31m\]\h \[\e[1;32m\]\W\[\e[1;37m\]] \$\[\e[0m\] '
 # PS1='[\u@\h \W]\$ '
 
