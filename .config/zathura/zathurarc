@@ -26,8 +26,10 @@ map K search backward
 
 set selection-clipboard clipboard
 set font "mono 9"
-set default-bg "#222222"
+set default-bg "#D2CBB6"
 
 map <C-i> recolor
-set recolor-darkcolor "#9fafaf"
-set recolor-lightcolor "#222222"
+set recolor-darkcolor "#657B83"
+set recolor-lightcolor "#FDF6E3"
+
+set recolor true
