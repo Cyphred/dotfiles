@@ -46,7 +46,7 @@ set statusline+=%{GitStatus()}
 " [LightLine]
 set laststatus=2
 let g:lightline = {
-	\ 'colorscheme': 'powerline',
+	\ 'colorscheme': 'solarized',
 	\ }
 
 " [NERDTree]
