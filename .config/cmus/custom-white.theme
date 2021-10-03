@@ -1,0 +1,24 @@
+# For Cyphred's custom Solarized White URxvt theme
+set color_cmdline_bg=default
+set color_cmdline_fg=default
+set color_error=lightred
+set color_info=lightblue
+set color_separator=default
+set color_statusline_bg=default
+set color_statusline_fg=default
+set color_titleline_bg=gray
+set color_titleline_fg=default
+set color_win_bg=default
+set color_win_cur=yellow
+set color_win_cur_sel_bg=yellow
+set color_win_cur_sel_fg=white
+set color_win_dir=blue
+set color_win_fg=default
+set color_win_inactive_cur_sel_bg=gray
+set color_win_inactive_cur_sel_fg=lightblue
+set color_win_inactive_sel_bg=gray
+set color_win_inactive_sel_fg=default
+set color_win_sel_bg=cyan
+set color_win_sel_fg=white
+set color_win_title_bg=gray
+set color_win_title_fg=black
