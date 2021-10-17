@@ -67,20 +67,12 @@ export EDITOR=/usr/bin/vim
 #export TERMINAL=/usr/local/bin/st
 export TERMINAL=/usr/bin/urxvt
 export WALLPAPER=~/.wallpaper
-export SCRIPTS=~/.scripts/
+export SCRIPTS=~/.local/bin/scripts
 export SCREENSHOTS=~/Pictures/Screenshots/
 export BROWSER=/usr/bin/brave
 export BROWSER_SECONDARY=/usr/bin/librewolf
 export BOOKMARKS=$HOME/.bmks/
 export FILEMANAGER=/usr/bin/thunar
-
-# Sets the alias for the home directory (for tracking dotfiles)
-export WALLPAPER=~/.wallpaper
-export SCRIPTS=~/.scripts/
-export SCREENSHOTS=~/Pictures/Screenshots/
-export BROWSER=/usr/bin/brave
-export BROWSER_SECONDARY=/usr/bin/librewolf
-export BOOKMARKS=$HOME/.bmks/
 
 # Sets the alias for the home directory (for tracking dotfiles)
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
