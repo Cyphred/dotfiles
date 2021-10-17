@@ -1,0 +1,24 @@
+#!/bin/bash
+# For use with a cron job.
+# IMPORTANT:
+# This script was created for and tested with runit as an init system;
+# hence, the use of loginctl for calling suspend.
+
+BATTINFO=$(acpi -b)
+
+# Ensure primary display is used for notification.
+export DISPLAY=:0.0
+
+# Exit if battery is not discharging
+grep "Discharging" <<< $BATTINFO || exit 
+
+# Extract remaining time
+TIME=$(cut -f 5 -d " " <<< $BATTINFO)
+
+if [[ $TIME < 00:10:00 ]]; then
+	notify-send -u critical "Emergency Suspend" "Battery at critical level. Suspending now to save session." &
+	~/.local/bin/scripts/i3lock.sh &
+	loginctl suspend
+elif [[ $TIME < 00:15:00 ]]; then
+	notify-send -u critical "Low Battery Warning" "Connect to AC or suspend now to prevent data loss." &
+fi
