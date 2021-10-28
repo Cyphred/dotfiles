@@ -50,4 +50,4 @@ rsync -avur /home/cyphred/documents/ $1:/mnt/disk1/documents
 rsync -avur /home/cyphred/books/ $1:/mnt/disk1/books
 
 # Notes
-rsync -avur /home/cyphred/notes/ $1:/mnt/disk1/notes
+#rsync -avur /home/cyphred/notes/ $1:/mnt/disk1/notes
