@@ -42,4 +42,5 @@ picom &
 feh --bg-fill ~/.wallpaper &
 
 ## Start dwm
-exec dwm
+# exec dwm
+exec i3
