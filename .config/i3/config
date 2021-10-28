@@ -38,23 +38,23 @@ floating_modifier $mod
 
 # Configure border colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #cb712a #cb712a #222222 #ffffff
-  client.focused_inactive #848484 #848484 #222222 #454948
-  client.unfocused        #222222 #1c1c1c #a0a0a0 #454948
-  client.urgent           #ffb71c #ffb71c #222222 #ffbe63
-  client.placeholder      #000000 #0c0c0c #ffffff #000000 
-  client.background       #c8e2fe
+  client.focused          #2aa198 #2aa198 #eae1c0 #ffffff
+  client.focused_inactive #d2cbb6 #d2cbb6 #686966 #454948
+  client.unfocused        #d2cbb6 #d2cbb6 #686966 #454948
+  client.urgent           #b58900 #b58900 #eee8d5 #ffbe63
+  client.unfocused        #d2cbb6 #d2cbb6 #686966 #454948
+  client.background       #fdf6e3
 
 # Hide borders
 hide_edge_borders none
 
 # change borders
-bindsym $mod+Shift+x border normal
+bindsym $mod+Shift+x border normal 3
 bindsym $mod+x border pixel 3
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Font Awesome 5 Free Regular 8
+font pango:Noto Sans 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -217,15 +217,16 @@ bindsym $mod+z workspace back_and_forth
 bindsym $mod+Shift+z move container to workspace back_and_forth; workspace back_and_forth
 
 # next and previous workspace
-bindsym $mod+k workspace prev
-bindsym $mod+m focus output left
+bindsym $mod+t workspace prev
+bindsym $mod+period focus output left
 bindsym $mod+comma focus output right
-bindsym $mod+period workspace next
+bindsym $mod+Tab workspace back_and_forth
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+t layout toggle split
+# TODO Add layout changing shortcuts.
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+# bindsym $mod+t layout toggle split
 
 # change tiling orientation
 bindsym $mod+v split v ; exec --no-startup-id notify-send 'Vertical tiling'
@@ -281,7 +282,7 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 
 # Start Applications
-bindsym $mod+q exec --no-startup-id firefox
+bindsym $mod+q exec --no-startup-id $BROWSER
 bindsym $mod+Ctrl+m exec --no-startup-id pavucontrol
 bindsym $mod+F1 exec --no-startup-id $SCRIPTS/dmenu-shared-drive.sh
 bindsym $mod+Shift+F1 exec --no-startup-id $SCRIPTS/dmenu-school-folder.sh
@@ -289,12 +290,17 @@ bindsym $mod+F3 exec --no-startup-id $TERMINAL -e ranger
 bindsym $mod+F11 exec --no-startup-id $SCRIPTS/colemak-layout-switch.sh
 
 # Open specific applications in floating mode
-for_window [class="Pavucontrol"] floating enable enable border normal
-for_window [class="nmtui"] floating enable enable border normal
-for_window [title="galculator"] floating enable enable border normal
-for_window [title="Removable Media Manager"] floating enable enable border normal
+# for_window [class="Pavucontrol"] floating enable enable border normal
 
 # Misc. Keybindings
+bindsym XF86Sleep exec --no-startup-id $SCRIPTS/i3lock.sh
+bindsym XF86Launch1 exec --no-startup-id xset dpms force off
+bindsym XF86ScreenSaver exec --no-startup-id $SCRIPTS/i3lock.sh & sleep 1 && xset dpms force off
+bindsym XF86Battery exec --no-startup-id notify-send "Keybind not set"
+bindsym XF86WebCam exec --no-startup-id $SCRIPTS/webcam-snapshot.sh
+bindsym Shift+XF86WebCam exec --no-startup-id $SCRIPTS/webcam-mirror.sh
+bindsym XF86TouchpadToggle exec --no-startup-id $SCRIPTS/touchpad-toggle.sh
+bindsym XF86Suspend exec --no-startup-id $SCRIPTS/i3lock.sh
 bindsym Print exec --no-startup-id $SCRIPTS/scrot-notifier.sh
 bindsym $mod+Print exec --no-startup-id $SCRIPTS/scrot-notifier.sh -u
 bindsym $mod+Shift+Print exec --no-startup-id $SCRIPTS/scrot-notifier.sh -fs
@@ -312,7 +318,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+f exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window (you can also use the mouse for that)
+bindsym $mod+r mode "resize"
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
@@ -320,20 +326,15 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym n resize grow height 10 px or 10 ppt
-        bindsym e resize shrink height 10 px or 10 ppt
-        bindsym i resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym n resize grow height 5 px or 5 ppt
+        bindsym e resize shrink height 5 px or 5 ppt
+        bindsym i resize grow width 5 px or 5 ppt
 
-        bindsym Shift+h resize shrink width 5 px or 5 ppt
-        bindsym Shift+n resize grow height 5 px or 5 ppt
-        bindsym Shift+e resize shrink height 5 px or 5 ppt
-        bindsym Shift+i resize grow width 5 px or 5 ppt
-
-        bindsym Ctrl+Shift+h resize shrink width 1 px or 1 ppt
-        bindsym Ctrl+Shift+n resize grow height 1 px or 1 ppt
-        bindsym Ctrl+Shift+e resize shrink height 1 px or 1 ppt
-        bindsym Ctrl+Shift+i resize grow width 1 px or 1 ppt
+        bindsym Shift+h resize shrink width 1 px or 1 ppt
+        bindsym Shift+n resize grow height 1 px or 1 ppt
+        bindsym Shift+e resize shrink height 1 px or 1 ppt
+        bindsym Shift+i resize grow width 1 px or 1 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -356,80 +357,32 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
 
-# hide/unhide i3status bar
-bindsym $mod+Shift+b bar mode toggle
+bindsym $mod+b bar mode toggle # hide/unhide i3status bar
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
 bar {
         status_command i3blocks
 	position top
-
-	# Primary output device for system tray
-	tray_output primary
-
-	# I think these are meant for binding to the extra mouse buttons
-	# bindsym button4 nop
-	# bindsym button5 nop
-	
-	# Uncomment this if you want to show only the workspace labels
-	# strip_workspace_numbers yes
-	
-	font pango:Font Awesome 5 Free Regular 8
+	tray_output primary # Primary output device for system tray
+	font pango:Noto Sans 8
 	
 	colors {
-		background #222222
-		statusline #9fafaf
-		separator #9fafaf
+		background #eae1c0
+		statusline #686966
+		separator #686966
 
-#					border	backgr.	text	indic.	child_border
-		focused_workspace	#cb712a #cb712a #222222 #cb712a
-		inactive_workspace      #222222 #222222 #9fafaf #454948
-		binding_mode            #222222 #222222 #9fafaf #454948
-		urgent_workspace        #ffb71c #ffb71c #222222 #ffbe63
+                                      # border  backgr. text	indic.	child_border
+		focused_workspace	#686966 #2aa198 #eee8d5 #cb712a
+		inactive_workspace      #686966 #d2cbb6 #686966 #454948
+		binding_mode            #686966 #d2cbb6 #686966 #454948
+		urgent_workspace        #686966 #b58900 #eee8d5 #454948
 	}
-}
-
-# Set shut down, restart and locking features
-bindsym $mod+0 mode "$mode_system"
-# bindsym $mod+BackSpace mode "$mode_system"
-set $mode_system (l)ock, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
-mode "$mode_system" {
-    # bindsym l exec --no-startup-id i3exit lock, mode "default"
-    # bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    # bindsym u exec --no-startup-id i3exit switch_user, mode "default"
-    # bindsym e exec --no-startup-id i3exit logout, mode "default"
-    # bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    # bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    # bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
-
-    bindsym l mode "default" ; exec --no-startup-id $SCRIPTS/i3lock.sh
-    bindsym s mode "default" ; exec --no-startup-id $SCRIPTS/i3lock.sh & systemctl suspend
-    bindsym h mode "default" ; exec --no-startup-id $SCRIPTS/i3lock.sh & systemctl hibernate
-    bindsym r mode "default" ; exec --no-startup-id systemctl reboot
-    bindsym Shift+s mode "default" ; exec --no-startup-id systemctl poweroff
-
-    # exit system mode: "Enter" or "Escape"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
 }
 
 # Primary display rotation features
 bindsym $mod+Shift+F12 mode "$mode_rotate"
 # set $mode_rotate Rotate display (Up) (Down) (Left) (Right)
 set $mode_rotate Rotate display (← ↓ ↑ →)
-mode "$mode_rotate" {
-	bindsym Up mode "default" ; exec --no-startup-id $SCRIPTS/rotate-display.sh primary normal
-	bindsym Down mode "default" ; exec --no-startup-id $SCRIPTS/rotate-display.sh primary inverted
-	bindsym Left mode "default" ; exec --no-startup-id $SCRIPTS/rotate-display.sh primary left
-	bindsym Right mode "default" ; exec --no-startup-id $SCRIPTS/rotate-display.sh primary right
-
-	bindsym Return mode "default"
-	bindsym Escape mode "default"
-}
-
 mode "$mode_rotate" {
 	bindsym Up mode "default" ; exec --no-startup-id $SCRIPTS/rotate-display.sh primary normal
 	bindsym Down mode "default" ; exec --no-startup-id $SCRIPTS/rotate-display.sh primary inverted

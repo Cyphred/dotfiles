@@ -2,18 +2,8 @@ command=~/.local/bin/statusbar/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
-[ping]
-interval=5
-
 [nettraf]
 interval=1
-
-[task]
-interval=once
-
-[torrent]
-interval=20
-signal=7
 
 [cpubars]
 interval=5
