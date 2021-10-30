@@ -60,62 +60,6 @@ font pango:Noto Sans 8
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 # font pango:DejaVu Sans Mono 8
 
-# Set inner/outer gaps
-gaps inner 0
-gaps outer 0
-
-# Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
-# gaps inner|outer current|all set|plus|minus <px>
-# gaps inner all set 10
-# gaps outer all plus 5
-
-# Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
-
-# Smart borders (draw borders around container only if it is not the only container on this workspace) 
-# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-smart_borders on
-
-# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
-set $mode_gaps Gaps: (o)uter, (i)nner (0)reset-all
-set $mode_gaps_outer Outer Gaps: (Up/Down) Adjust | (Left) Reset | (Right) Inner | (Shift) Global
-set $mode_gaps_inner Inner Gaps: (Up/Down) Adjust | (Left) Reset | (Right) Outer | (Shift) Global
-bindsym $mod+g mode "$mode_gaps"
-
-mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-	bindsym 0      mode "default" ; gaps inner all set 0 ; gaps outer all set 0
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_inner" {
-	bindsym Up	gaps inner current plus 5
-        bindsym Down	gaps inner current minus 5
-        bindsym 0	gaps inner current set 0
-
-        bindsym Shift+Up	gaps inner all plus 5
-        bindsym Shift+Down	gaps inner all minus 5
-        bindsym Shift+0	gaps inner all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-	bindsym Right mode "$mode_gaps_outer"
-}
-mode "$mode_gaps_outer" {
-        bindsym Up	gaps outer current plus 5
-        bindsym Down	gaps outer current minus 5
-        bindsym 0	gaps outer current set 0
-
-        bindsym Shift+Up  gaps outer all plus 5
-        bindsym Shift+Down gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-	bindsym Right mode "$mode_gaps_inner"
-}
-
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
