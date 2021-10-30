@@ -37,12 +37,12 @@ default_floating_border pixel 3
 floating_modifier $mod
 
 # Configure border colors
+# Note: indic. is for the indicator of the tiling orientation (i.e. vertical, horizontal)
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #2aa198 #2aa198 #eae1c0 #ffffff
-  client.focused_inactive #d2cbb6 #d2cbb6 #686966 #454948
-  client.unfocused        #d2cbb6 #d2cbb6 #686966 #454948
-  client.urgent           #b58900 #b58900 #eee8d5 #ffbe63
-  client.unfocused        #d2cbb6 #d2cbb6 #686966 #454948
+  client.focused          #2aa198 #2aa198 #eae1c0 #d33862
+  client.focused_inactive #d2cbb6 #d2cbb6 #686966 #d2cbb6
+  client.unfocused        #d2cbb6 #d2cbb6 #686966 #d2cbb6
+  client.urgent           #b58900 #b58900 #eee8d5 #b58900
   client.background       #fdf6e3
 
 # Hide borders
@@ -157,24 +157,23 @@ bindsym $mod+Shift+s sticky toggle ; exec --no-startup-id notify-send 'Toggled s
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
-bindsym $mod+z workspace back_and_forth
-bindsym $mod+Shift+z move container to workspace back_and_forth; workspace back_and_forth
+bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Shift+Tab move container to workspace back_and_forth; workspace back_and_forth
 
 # next and previous workspace
 bindsym $mod+t workspace prev
 bindsym $mod+period focus output left
 bindsym $mod+comma focus output right
-bindsym $mod+Tab workspace back_and_forth
 
 # change container layout (stacked, tabbed, toggle split)
 # TODO Add layout changing shortcuts.
-# bindsym $mod+s layout stacking
-# bindsym $mod+w layout tabbed
-# bindsym $mod+t layout toggle split
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+z layout toggle split
 
 # change tiling orientation
-bindsym $mod+v split v ; exec --no-startup-id notify-send 'Vertical tiling'
-bindsym $mod+c split h ; exec --no-startup-id notify-send 'Horizontal tiling'
+bindsym $mod+v split v ; exec --no-startup-id notify-send -t 750 'Vertical tiling'
+bindsym $mod+c split h ; exec --no-startup-id notify-send -t 750 'Horizontal tiling'
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
