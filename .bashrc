@@ -102,7 +102,7 @@ alias undock='$SCRIPTS/dock.sh undock'
 alias weather='$SCRIPTS/weather.sh'
 
 # Power aliases
-alias lock='$SCRIPTS/i3lock.sh'
+alias lock='$SCRIPTS/i3lock.sh & xset dpms force off'
 alias off='xset dpms force off'
 alias zzz='$SCRIPTS/i3lock.sh & sleep 1 && loginctl suspend'
 alias ZZZ='$SCRIPTS/i3lock.sh & sleep 1 && loginctl hibernate'
