@@ -4,29 +4,7 @@
 # $1 should be drive mountpoint, otherwise assumed /.
 
 location=${1:-/}
-
 [ -d "$location" ] || exit
-
-_generate_table() {
-	df_output=$(df -h --output=used,size,target)
-	line_count=$(echo "$df_output" | wc -l)
-	output="[Used / Size]   Mounted on\n"
-
-	for (( i=2; i<=$line_count; i=i+1)); do
-		current_line=$(echo "$df_output" | sed -n "$i{p;q}")
-		built_line=$(echo "$current_line" | awk '{printf ("[%s / %s] %s", $1, $2, $3)}')
-		output+="$built_line\n"
-	done
-}
-
-case $BLOCK_BUTTON in
-	# 1) notify-send "💽 Disk space" "$(df -h --output=size,target,used)" ;;
-	1) notify-send "💽 Disk space" "$(_generate_table && echo $output)" ;;
-	2) setsid -f "$TERMINAL" -t "bashmount" -e bashmount ;;
-	3) notify-send "💽 Disk module" "\- Shows used hard drive space.
-- Click to show all disk info." ;;
-	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
-esac
 
 case "$location" in
 	"/home"* ) icon="" ;;
@@ -34,4 +12,4 @@ case "$location" in
 	*) icon="";;
 esac
 
-printf "%s %s\n" "$icon" "$(df -h "$location" | awk ' /[0-9]/ {print $3 "/" $2}')"
+printf "%s %s\n" "$icon" "$(df -h "$location" | awk ' /[0-9]/ {print $3 " / " $2}')"

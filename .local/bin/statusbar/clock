@@ -1,3 +1,4 @@
 #!/bin/sh
+# Displays a formatted date/time for the status bar
 
 date "+%a %d %b  %R:%S"
