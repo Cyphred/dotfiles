@@ -141,10 +141,8 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # move focused workspace between monitors using vim keys
-bindsym $mod+Ctrl+n move workspace to output down
-bindsym $mod+Ctrl+e move workspace to output up
-bindsym $mod+Ctrl+h move workspace to output left
-bindsym $mod+Ctrl+i move workspace to output right
+bindsym $mod+Shift+comma move workspace to output left
+bindsym $mod+Shift+period move workspace to output right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Ctrl+Down move workspace to output down
@@ -244,9 +242,9 @@ bindsym XF86WebCam exec --no-startup-id $SCRIPTS/webcam-snapshot.sh
 bindsym Shift+XF86WebCam exec --no-startup-id $SCRIPTS/webcam-mirror.sh
 bindsym XF86TouchpadToggle exec --no-startup-id $SCRIPTS/touchpad-toggle.sh
 bindsym XF86Suspend exec --no-startup-id $SCRIPTS/i3lock.sh
-bindsym Print exec --no-startup-id $SCRIPTS/scrot-notifier.sh
-bindsym $mod+Print exec --no-startup-id $SCRIPTS/scrot-notifier.sh -u
-bindsym $mod+Shift+Print exec --no-startup-id $SCRIPTS/scrot-notifier.sh -fs
+bindsym Print exec --no-startup-id $SCRIPTS/screenshot-maim.sh
+bindsym $mod+Print exec --no-startup-id $SCRIPTS/screenshot-maim.sh -u
+bindsym $mod+Shift+Print exec --no-startup-id $SCRIPTS/screenshot-maim.sh -fs
 bindsym $mod+p exec --no-startup-id picom & notify-send "Compositor Enabled"
 bindsym $mod+Shift+p exec --no-startup-id kill $(pidof picom) && notify-send "Compositor Disabled"
 bindsym $mod+l exec --no-startup-id $SCRIPTS/i3lock.sh
