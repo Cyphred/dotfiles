@@ -41,6 +41,8 @@ picom &
 # Set the wallpaper
 feh --bg-fill ~/.wallpaper &
 
+xbacklight -set 25
+
 ## Start dwm
-# exec dwm
-exec i3
+exec dwm
+# exec i3
