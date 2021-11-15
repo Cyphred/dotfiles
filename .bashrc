@@ -93,6 +93,7 @@ alias qr='$SCRIPTS/scrot-zbarimg.sh'
 alias scim='sc-im'
 alias httpsrv='python -m http.server'
 alias glances='glances --theme-white'
+alias wp='feh --bg-fill ~/.wallpaper --bg-fill ~/.wallpaper'
 
 # Docking shortcuts
 alias dock='$SCRIPTS/dock.sh'
@@ -117,6 +118,9 @@ alias jr='$HOME/journal/new-entry.sh'
 
 # Arduino shortcuts (temporary)
 # TODO create proper arduino compile scripts
-# alias run='$SCRIPTS/arduino-compile-and-run.sh'
+alias run='$SCRIPTS/arduino/arduino-compile-and-run.sh'
 # alias compile='arduino-cli compile -b arduino:avr:nano:cpu=atmega328old'
 # alias upload='arduino-cli compile -b arduino:avr:nano:cpu=atmega328old && arduino-cli upload -b arduino:avr:nano:cpu=atmega328old -v -p $1'
+alias compile='arduino-cli compile -b arduino:avr:micro'
+alias upload='arduino-cli compile -b arduino:avr:micro && arduino-cli upload -b arduino:avr:micro -v -p $1'
+
