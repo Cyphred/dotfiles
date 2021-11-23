@@ -12,6 +12,17 @@ _notify_error() {
 	notify-send -u critical "Error setting screen layout" "Unable to set screen layout to\"$layout\"."
 }
 
+_all_off() {
+	$LAYOUTS/nothing.sh
+}
+
+_is_undocked() {
+	active_monitors=$(xrandr --listactivemonitors | sed '/Monitors/d')
+	[ "$(wc -l <<< $active_monitors)" -gt 1 ] && return 1
+	grep "LVDS1" <<< $active_monitors && return 0
+	return 1
+}
+
 # Internal screen only
 _internal() {
 	layout="internal"
@@ -33,11 +44,18 @@ _dual_internal() {
 	_notify_success || _notify_error
 }
 
+_dual_external() {
+	_single
+	layout="dual-e"
+	$LAYOUTS/dual-external.sh && \
+	_notify_success || _notify_error
+}
+
 # Automatically chooses the default layout if no parameters were specified
 _auto() {
 	if xrandr | grep "HDMI2 connected"; then
-		layout="dual-i"
-		_dual_internal
+		layout="dual-e"
+		_dual_external
 	else
 		layout="internal"
 		_internal
@@ -62,10 +80,10 @@ _set_wallpaper() {
 input=${1,,} # Make the input lowercase
 case $input in
 	"dual")
-		if [ "$2" == "vertical" ]; then
-			_dual_vertical
-		elif [ "$2" == "horizontal" ]; then
-			_dual_horizontal
+		if [ "$2" == "external" ]; then
+			_dual_external
+		elif [ "$2" == "internal" ]; then
+			_dual_internal
 		fi
 		;;
 	"single") _single ;;
