@@ -32,4 +32,4 @@ map <C-i> recolor
 set recolor-darkcolor "#657B83"
 set recolor-lightcolor "#FDF6E3"
 
-set recolor true
+#set recolor true
