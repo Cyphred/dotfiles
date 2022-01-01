@@ -94,6 +94,7 @@ alias scim='sc-im'
 alias httpsrv='python -m http.server'
 alias glances='glances --theme-white'
 alias wp='feh --bg-fill ~/.wallpaper --bg-fill ~/.wallpaper'
+alias disk='$HOME/.local/bin/scripts/disk.sh'
 
 # Docking shortcuts
 alias dock='$SCRIPTS/dock.sh'
@@ -121,6 +122,5 @@ alias jr='$HOME/journal/new-entry.sh'
 alias run='$SCRIPTS/arduino/arduino-compile-and-run.sh'
 # alias compile='arduino-cli compile -b arduino:avr:nano:cpu=atmega328old'
 # alias upload='arduino-cli compile -b arduino:avr:nano:cpu=atmega328old && arduino-cli upload -b arduino:avr:nano:cpu=atmega328old -v -p $1'
-alias compile='arduino-cli compile -b arduino:avr:micro'
-alias upload='arduino-cli compile -b arduino:avr:micro && arduino-cli upload -b arduino:avr:micro -v -p $1'
-
+ alias compile='arduino-cli compile -b arduino:avr:uno'
+ alias upload='arduino-cli compile -b arduino:avr:uno && arduino-cli upload -b arduino:avr:uno -v -p $1'
