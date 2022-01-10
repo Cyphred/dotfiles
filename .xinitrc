@@ -36,7 +36,7 @@ fi
 setxkbmap us -variant colemak
 
 # Start the compositor
-picom &
+picom -b --unredir-if-possible --backend xr_glx_hybrid --vsync --use-damage --glx-no-stencil &
 
 # Set the wallpaper
 feh --bg-fill ~/.wallpaper &
