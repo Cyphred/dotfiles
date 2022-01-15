@@ -41,8 +41,9 @@ picom &
 # Set the wallpaper
 feh --bg-fill ~/.wallpaper &
 
-xbacklight -set 25
+# For Java applications to work, mainly JetBrains IDEs
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 ## Start dwm
 exec dwm
-# exec i3
+#exec i3
