@@ -106,16 +106,17 @@ alias weather='$SCRIPTS/weather.sh'
 # Power aliases
 alias lock='$SCRIPTS/i3lock.sh & xset dpms force off'
 alias off='xset dpms force off'
-alias zzz='$SCRIPTS/i3lock.sh & sleep 1 && loginctl suspend'
-alias ZZZ='$SCRIPTS/i3lock.sh & sleep 1 && loginctl hibernate'
-alias die='$SCRIPTS/power-control/poweroff.sh'
-alias reboot='loginctl reboot'
+alias zzz='$SCRIPTS/i3lock.sh & sleep 1 && systemctl suspend'
+alias ZZZ='$SCRIPTS/i3lock.sh & sleep 1 && systemctl hibernate'
+alias die='systemctl poweroff'
+alias reboot='systemctl reboot'
 
 # Frequent files/documents
 alias sched='sxiv $HOME/.sched'
 alias lazy='less $HOME/notes/lazyman.md'
 alias giveup='mpv $HOME/videos/never-give-up.mkv & disown'
 alias jr='$HOME/journal/new-entry.sh'
+alias finances='libreoffice $HOME/documents/finances.ods'
 
 # Arduino shortcuts (temporary)
 # TODO create proper arduino compile scripts
