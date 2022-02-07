@@ -51,10 +51,5 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 ## Start dwm
-<<<<<<< HEAD
 #exec dwm
 exec i3
-=======
-exec dwm
-#exec i3
->>>>>>> 2e4150f04b2c46f0db93b763c18f667ab9d6f94d
