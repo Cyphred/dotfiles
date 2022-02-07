@@ -32,7 +32,7 @@ URxvt.iso14755:			false
 URxvt.iso14755_52:		false
 URxvt.keysym.Control-N:		perl:pageup
 URxvt.keysym.Control-E:		perl:pagedown
-URxvt.keysym.C-minus:		resize-font:smaller
-URxvt.keysym.C-plus:		resize-font:bigger
-URxvt.keysym.C-equal:		resize-font:reset
-URxvt.keysym.C-question:	resize-font:show
+URxvt.keysym.Control-minus:	resize-font:smaller
+URxvt.keysym.Control-plus:	resize-font:bigger
+URxvt.keysym.Control-equal:	resize-font:reset
+URxvt.keysym.Control-question:	resize-font:show
