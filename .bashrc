@@ -63,7 +63,7 @@ export PS1="[\[\e[33m\]\u\[\e[m\]@\[\e[34m\]\h\[\e[m\] \[\e[32m\]\W\[\e[m\]]\[\e
 # Disables highlights for directories owned by root
 export LS_COLORS=$LS_COLORS:'ow=1;34:';
 
-export EDITOR=/usr/bin/vim
+export EDITOR=/usr/bin/nvim
 #export TERMINAL=/usr/local/bin/st
 export TERMINAL=/usr/bin/urxvt
 export WALLPAPER=~/.wallpaper
@@ -97,8 +97,8 @@ alias wp='feh --bg-fill ~/.wallpaper --bg-fill ~/.wallpaper'
 alias disk='$HOME/.local/bin/scripts/disk.sh'
 
 # Docking shortcuts
-alias dock='$SCRIPTS/dock.sh'
-alias undock='$SCRIPTS/dock.sh undock'
+alias dock='$HOME/.screenlayout/desktop-dual.sh'
+alias undock='$HOME/.screenlayout/desktop-single.sh'
 
 # Internet needed
 alias weather='$SCRIPTS/weather.sh'
@@ -106,10 +106,10 @@ alias weather='$SCRIPTS/weather.sh'
 # Power aliases
 alias lock='$SCRIPTS/i3lock.sh & xset dpms force off'
 alias off='xset dpms force off'
-alias zzz='$SCRIPTS/i3lock.sh & sleep 1 && loginctl suspend'
-alias ZZZ='$SCRIPTS/i3lock.sh & sleep 1 && loginctl hibernate'
-alias die='$SCRIPTS/power-control/poweroff.sh'
-alias reboot='loginctl reboot'
+alias zzz='$SCRIPTS/i3lock.sh & sleep 1 && systemctl suspend'
+alias ZZZ='$SCRIPTS/i3lock.sh & sleep 1 && systemctl hibernate'
+alias die='systemctl poweroff'
+alias reboot='systemctl reboot'
 
 # Frequent files/documents
 alias sched='sxiv $HOME/.sched'

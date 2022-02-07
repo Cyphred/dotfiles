@@ -36,13 +36,19 @@ fi
 setxkbmap us -variant colemak
 
 # Start the compositor
-picom -b --unredir-if-possible --backend xr_glx_hybrid --vsync --use-damage --glx-no-stencil &
+# picom -b --unredir-if-possible --backend xr_glx_hybrid --vsync --use-damage --glx-no-stencil &
+#picom -b --unredir-if-possible --backend xr_glx_hybrid --vsync --vsync-use-glfinish --use-damage --glx-no-stencil &
+picom --vsync & 
 
 # Set the wallpaper
 feh --bg-fill ~/.wallpaper &
 
 xbacklight -set 25
 
+# For Java applications to work, mainly JetBrains IDEs
+#export AWT_TOOLKIT=MToolkit
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 ## Start dwm
-exec dwm
-# exec i3
+#exec dwm
+exec i3
