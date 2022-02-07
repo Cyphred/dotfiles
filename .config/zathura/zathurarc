@@ -29,7 +29,7 @@ set font "mono 9"
 set default-bg "#D2CBB6"
 
 map <C-i> recolor
-set recolor-darkcolor "#657B83"
+set recolor-darkcolor "#1C1C1C"
 set recolor-lightcolor "#FDF6E3"
 
 #set recolor true

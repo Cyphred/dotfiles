@@ -116,6 +116,7 @@ alias sched='sxiv $HOME/.sched'
 alias lazy='less $HOME/notes/lazyman.md'
 alias giveup='mpv $HOME/videos/never-give-up.mkv & disown'
 alias jr='$HOME/journal/new-entry.sh'
+alias finances='libreoffice $HOME/documents/finances.ods'
 
 # Arduino shortcuts (temporary)
 # TODO create proper arduino compile scripts

@@ -43,12 +43,18 @@ picom --vsync &
 # Set the wallpaper
 feh --bg-fill ~/.wallpaper &
 
-xbacklight -set 25
+# For Java applications to work, mainly JetBrains IDEs
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 # For Java applications to work, mainly JetBrains IDEs
 #export AWT_TOOLKIT=MToolkit
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 ## Start dwm
+<<<<<<< HEAD
 #exec dwm
 exec i3
+=======
+exec dwm
+#exec i3
+>>>>>>> 2e4150f04b2c46f0db93b763c18f667ab9d6f94d
