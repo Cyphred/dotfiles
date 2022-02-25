@@ -24,6 +24,7 @@ set $mod Mod4
 
 # Set extra f keys to a name more easily remembered
 # NOTE: Only use these with commands when docked
+set $F13 XF86Tools
 set $F14 XF86Launch5
 set $F15 XF86Launch6
 set $F16 XF86Launch7
@@ -40,7 +41,7 @@ floating_modifier $mod
 # Configure border colors
 # Note: indic. is for the indicator of the tiling orientation (i.e. vertical, horizontal)
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #686966 #2aa198 #eae1c0 #d33862
+  client.focused          #686966 #859900 #eae1c0 #d33862
   client.focused_inactive #686966 #d2cbb6 #686966 #d2cbb6
   client.unfocused        #686966 #d2cbb6 #686966 #d2cbb6
   client.urgent           #b58900 #b58900 #eee8d5 #b58900
@@ -105,8 +106,8 @@ bindsym $mod+XF86MonBrightnessDown exec --no-startup-id $SCRIPTS/dmenu-brightnes
 
 # start a terminal
 bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
-bindsym $mod+Shift+s move scratchpad
-bindsym $mod+Shift+Return scratchpad show
+bindsym $mod+Shift+0 move scratchpad
+bindsym $mod+0 scratchpad show
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -228,10 +229,8 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 # Start Applications
 bindsym $mod+q exec --no-startup-id $BROWSER
 bindsym $mod+Ctrl+m exec --no-startup-id pavucontrol
-bindsym $mod+F1 exec --no-startup-id $SCRIPTS/dmenu-shared-drive.sh
-bindsym $mod+Shift+F1 exec --no-startup-id $SCRIPTS/dmenu-school-folder.sh
-bindsym $mod+F3 exec --no-startup-id $TERMINAL -e ranger
 bindsym $mod+F11 exec --no-startup-id $SCRIPTS/colemak-layout-switch.sh
+bindsym $mod+g exec --no-startup-id $FILEMANAGER
 
 # Open specific applications in floating mode
 # for_window [class="Pavucontrol"] floating enable enable border normal
@@ -316,10 +315,10 @@ bar {
 		separator #686966
 
                                       # border  backgr. text	indic.	child_border
-		focused_workspace	#686966 #2aa198 #eee8d5 #cb712a
+		focused_workspace	#686966 #859900 #eee8d5 #cb712a
 		inactive_workspace      #686966 #d2cbb6 #686966 #454948
 		binding_mode            #686966 #d2cbb6 #686966 #454948
-		urgent_workspace        #686966 #b58900 #eee8d5 #454948
+		urgent_workspace        #686966 #686966 #eee8d5 #454948
 	}
 }
 
