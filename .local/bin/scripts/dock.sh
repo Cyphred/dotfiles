@@ -53,7 +53,7 @@ _dual_external() {
 
 # Automatically chooses the default layout if no parameters were specified
 _auto() {
-	if xrandr | grep "HDMI2 connected"; then
+	if xrandr | grep "HDMI3 connected"; then
 		layout="dual-e"
 		_dual_external
 	else
@@ -90,4 +90,5 @@ case $input in
 	"undock") _internal ;;
 	"internal") _internal ;;
 	*) notify-send -u critical "Invalid layout" "Specified layout \"$input\" does not exist." ;;
-esac && _set_wallpaper
+esac
+_set_wallpaper

@@ -95,10 +95,11 @@ alias httpsrv='python -m http.server'
 alias glances='glances --theme-white'
 alias wp='feh --bg-fill ~/.wallpaper --bg-fill ~/.wallpaper'
 alias disk='$HOME/.local/bin/scripts/disk.sh'
+alias vim='/usr/bin/nvim'
 
 # Docking shortcuts
-alias dock='$HOME/.screenlayout/desktop-dual.sh'
-alias undock='$HOME/.screenlayout/desktop-single.sh'
+alias dock='$SCRIPTS/dock.sh'
+alias undock='$HOME/.screenlayout/single-internal.sh && feh --bg-fill ~/.wallpaper --bg-fill ~/.wallpaper'
 
 # Internet needed
 alias weather='$SCRIPTS/weather.sh'

@@ -239,6 +239,8 @@ bindsym $mod+g exec --no-startup-id $FILEMANAGER
 bindsym XF86Sleep exec --no-startup-id $SCRIPTS/i3lock.sh
 bindsym XF86Launch1 exec --no-startup-id xset dpms force off
 bindsym XF86ScreenSaver exec --no-startup-id $SCRIPTS/i3lock.sh & sleep 1 && xset dpms force off
+bindsym XF86Display exec --no-startup-id $SCRIPTS/dock.sh
+bindsym $mod+XF86Display exec --no-startup-id $SCRIPTS/dock.sh internal
 bindsym XF86Battery exec --no-startup-id notify-send "Keybind not set"
 bindsym XF86WebCam exec --no-startup-id $SCRIPTS/webcam-snapshot.sh
 bindsym Shift+XF86WebCam exec --no-startup-id $SCRIPTS/webcam-mirror.sh
@@ -249,7 +251,7 @@ bindsym $mod+Print exec --no-startup-id $SCRIPTS/screenshot-maim.sh -u
 bindsym $mod+Shift+Print exec --no-startup-id $SCRIPTS/screenshot-maim.sh -fs
 bindsym $mod+p exec --no-startup-id picom & notify-send "Compositor Enabled"
 bindsym $mod+Shift+p exec --no-startup-id kill $(pidof picom) && notify-send "Compositor Disabled"
-bindsym $mod+l exec --no-startup-id $SCRIPTS/i3lock.sh
+bindsym $mod+l exec --no-startup-id $SCRIPTS/i3lock.sh & sleep 3 && xset dpms force off
 bindsym XF86Calculator exec --no-startup-id galculator
 bindsym $mod+backslash exec --no-startup-id $SCRIPTS/passmenu-pass.sh
 bindsym $mod+Shift+backslash exec --no-startup-id $SCRIPTS/passmenu-otp.sh
