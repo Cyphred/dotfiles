@@ -5,6 +5,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+[[ -d $HOME/.config/composer/vendor/bin ]] && export PATH=$HOME/.config/composer/vendor/bin:$PATH
+
 # Activates vi mode with <Escape>:
 set -o vi
 
