@@ -98,6 +98,8 @@ alias glances='glances --theme-white'
 alias wp='feh --bg-fill ~/.wallpaper --bg-fill ~/.wallpaper'
 alias disk='$HOME/.local/bin/scripts/disk.sh'
 alias vim='/usr/bin/nvim'
+alias nodedev='source /usr/share/nvm/init-nvm.sh'
+alias fz='$SCRIPTS/rxvt-fontsize.sh'
 
 # Docking shortcuts
 alias dock='$SCRIPTS/dock.sh'
