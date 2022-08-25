@@ -100,6 +100,8 @@ alias disk='$HOME/.local/bin/scripts/disk.sh'
 alias vim='/usr/bin/nvim'
 alias nodedev='source /usr/share/nvm/init-nvm.sh'
 alias fz='$SCRIPTS/rxvt-fontsize.sh'
+alias mirror='$SCRIPTS/webcam-mirror.sh'
+alias ppt2pdf='soffice --headless --convert-to pdf $1'
 
 # Docking shortcuts
 alias dock='$SCRIPTS/dock.sh'
