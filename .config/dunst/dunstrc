@@ -189,8 +189,8 @@
     ### Misc/Advanced ###
 
     # Position
-    origin=top-right
-    offset=10x32
+    origin=top-center
+    offset=0x24
 
     # dmenu path.
     dmenu = /usr/bin/dmenu -p dunst:

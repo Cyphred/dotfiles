@@ -74,7 +74,7 @@ export SCREENSHOTS=~/Pictures/Screenshots/
 export BROWSER=/usr/bin/brave
 export BROWSER_SECONDARY=/usr/bin/librewolf
 export BOOKMARKS=$HOME/.bmks/
-export FILEMANAGER=/usr/bin/thunar
+export FILEMANAGER=/usr/bin/pcmanfm
 
 # Sets the alias for the home directory (for tracking dotfiles)
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
