@@ -1,0 +1,13 @@
+{
+  "workbench.startupEditor": "none",
+  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.lineNumbers": "relative",
+  "editor.wordWrap": "on",
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.tabSize": 2
+}
