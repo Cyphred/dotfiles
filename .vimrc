@@ -23,7 +23,7 @@ set number
 set relativenumber
 set autoindent
 set cursorline
-set background=light
+set background=dark
 colorscheme default
 "highlight LineNr ctermfg=4
 "highlight CursorLineNr ctermfg=4
