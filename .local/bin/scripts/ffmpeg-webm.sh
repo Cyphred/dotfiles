@@ -16,4 +16,4 @@ if [ ! "$3" ]; then
 	exit 1
 fi
 
-ffmpeg -i $1 -vcodec libvpx -acodec libvorbix -crf $2 $3
+ffmpeg -i $1 -vcodec libvpx -acodec libvorbis -crf $3 $2
