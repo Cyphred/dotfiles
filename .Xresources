@@ -1,6 +1,5 @@
 Xft.dpi: 96
 
-
 # URxvt configuration
 URxvt.perl-ext-common:	resize-font
 URxvt.font:		xft:Noto Sans Mono:pixelsize=12
@@ -9,6 +8,10 @@ URxvt.italicFont:	xft:Noto Sans Mono:pixelsize=12:italic
 URxvt.boldItalicFont:	xft:Noto Sans Mono:pixelsize=12:bold:italic
 URxvt.letterSpace:	-1
 URxvt.scrollBar:	false
+
+# This is a temporary fix for the prompt showing up in the middle
+URxvt.geometry:         400x400
+
 ! special
 URxvt.foreground:   #c5c8c6
 URxvt.background:   #1d1f21
