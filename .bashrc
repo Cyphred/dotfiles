@@ -66,12 +66,11 @@ export PS1="[\[\e[33m\]\u\[\e[m\]@\[\e[34m\]\h\[\e[m\] \[\e[32m\]\W\[\e[m\]]\[\e
 export LS_COLORS=$LS_COLORS:'ow=1;34:';
 
 export EDITOR=/usr/bin/nvim
-#export TERMINAL=/usr/local/bin/st
-export TERMINAL=/usr/bin/urxvt
+export TERMINAL=/usr/bin/kitty
 export WALLPAPER=~/.wallpaper
 export SCRIPTS=~/.local/bin/scripts
 export SCREENSHOTS=~/Pictures/Screenshots/
-export BROWSER=/usr/bin/brave
+export BROWSER=/usr/bin/firefox
 export BROWSER_SECONDARY=/usr/bin/librewolf
 export BOOKMARKS=$HOME/.bmks/
 export FILEMANAGER=/usr/bin/pcmanfm
