@@ -130,3 +130,10 @@ alias run='$SCRIPTS/arduino/arduino-compile-and-run.sh'
 # alias upload='arduino-cli compile -b arduino:avr:nano:cpu=atmega328old && arduino-cli upload -b arduino:avr:nano:cpu=atmega328old -v -p $1'
  alias compile='arduino-cli compile -b arduino:avr:uno'
  alias upload='arduino-cli compile -b arduino:avr:uno && arduino-cli upload -b arduino:avr:uno -v -p $1'
+
+# Website shortcuts
+
+# I use Brave cos it's usually the only Chromium browser I have.
+# Maybe when Microsoft decides to fix their support for the native linux app,
+# then I'll remove this.
+alias teams='brave https://teams.live.com/'
