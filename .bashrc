@@ -71,6 +71,7 @@ export WALLPAPER=~/.wallpaper
 export SCRIPTS=~/.local/bin/scripts
 export SCREENSHOTS=~/Pictures/Screenshots/
 export BROWSER=/usr/bin/firefox
+export BROWSER_PRIVATE="$BROWSER --private-window"
 export BROWSER_SECONDARY=/usr/bin/librewolf
 export BOOKMARKS=$HOME/.bmks/
 export FILEMANAGER=/usr/bin/pcmanfm
@@ -100,6 +101,7 @@ alias nodedev='source /usr/share/nvm/init-nvm.sh'
 alias fz='$SCRIPTS/rxvt-fontsize.sh'
 alias mirror='$SCRIPTS/webcam-mirror.sh'
 alias ppt2pdf='soffice --headless --convert-to pdf $1'
+alias cmus='cmus colorscheme dracula'
 
 # Docking shortcuts
 alias dock='$SCRIPTS/dock.sh'
@@ -137,3 +139,4 @@ alias run='$SCRIPTS/arduino/arduino-compile-and-run.sh'
 # Maybe when Microsoft decides to fix their support for the native linux app,
 # then I'll remove this.
 alias teams='brave https://teams.live.com/'
+
