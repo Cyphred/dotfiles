@@ -5,6 +5,8 @@
 # exec --no-startup-id mpv ~/.config/i3/xp-startup.mp3
 
 # Things to launch when i3 starts
+exec --no-startup-id $HOME/.screenlayout/dual-internal.sh
+exec --no-startup-id feh --bg-fill $HOME/.wallpaper --bg-fill $HOME/.wallpaper
 exec --no-startup-id sxhkd
 exec --no-startup-id picom
 exec --no-startup-id nm-applet
@@ -54,7 +56,7 @@ bindsym $mod+x border pixel 3
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Noto Sans Mono 8
+font pango:Ubuntu Mono 9
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -104,8 +106,8 @@ bindsym $mod+XF86MonBrightnessDown exec --no-startup-id $SCRIPTS/dmenu-brightnes
 
 # start a terminal
 bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
-#bindsym $mod+Shift+0 move scratchpad
-#bindsym $mod+0 scratchpad show
+bindsym $mod+Shift+BackSpace move scratchpad
+bindsym $mod+BackSpace scratchpad show
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -153,7 +155,7 @@ bindsym $mod+Ctrl+Left move workspace to output left
 bindsym $mod+Ctrl+Right move workspace to output right
 
 # toggle sticky
-#bindsym $mod+s sticky toggle ; exec --no-startup-id notify-send 'Toggled sticky mode'
+bindsym $mod+Mod1+s sticky toggle ; exec --no-startup-id notify-send 'Toggled sticky mode'
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
@@ -229,6 +231,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # Start Applications
 bindsym $mod+q exec --no-startup-id $BROWSER
+bindsym $mod+Mod1+q exec --no-startup-id $BROWSER_PRIVATE
 bindsym $mod+Ctrl+m exec --no-startup-id pavucontrol
 bindsym $mod+F11 exec --no-startup-id $SCRIPTS/colemak-layout-switch.sh
 bindsym $mod+g exec --no-startup-id $FILEMANAGER
@@ -247,7 +250,8 @@ bindsym XF86WebCam exec --no-startup-id $SCRIPTS/webcam-snapshot.sh
 bindsym Shift+XF86WebCam exec --no-startup-id $SCRIPTS/webcam-mirror.sh
 bindsym XF86TouchpadToggle exec --no-startup-id $SCRIPTS/touchpad-toggle.sh
 bindsym XF86Suspend exec --no-startup-id $SCRIPTS/i3lock.sh
-bindsym Print exec --no-startup-id $SCRIPTS/screenshot-maim.sh
+#bindsym Print exec --no-startup-id $SCRIPTS/screenshot-maim.sh
+bindsym Print exec --no-startup-id $HOME/maim-figma-768p.sh
 bindsym $mod+Print exec --no-startup-id $SCRIPTS/screenshot-maim.sh -u
 bindsym $mod+Shift+Print exec --no-startup-id $SCRIPTS/screenshot-maim.sh -fs
 bindsym $mod+p exec --no-startup-id picom & notify-send "Compositor Enabled"
@@ -337,7 +341,7 @@ bar {
         status_command i3blocks
         position top
         tray_output primary
-        font pango:Font Awesome 6 Free 9px, Noto Sans Mono 10px
+        font pango: Ubuntu Mono 12px
 
         colors {
                 statusline #e0e0e0
