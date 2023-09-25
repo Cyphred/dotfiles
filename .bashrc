@@ -102,6 +102,8 @@ alias fz='$SCRIPTS/rxvt-fontsize.sh'
 alias mirror='$SCRIPTS/webcam-mirror.sh'
 alias ppt2pdf='soffice --headless --convert-to pdf $1'
 alias cmus='cmus colorscheme dracula'
+alias kitty-ssh='kitty +kitten ssh'
+alias alarm='python $HOME/.local/bin/scripts/alarm.py'
 
 # Docking shortcuts
 alias dock='$SCRIPTS/dock.sh'
