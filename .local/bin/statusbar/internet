@@ -1,15 +1,13 @@
 # !/bin/sh
 
 # ip=$(ip route get 1 | awk '{print $(NF-2)}')
-w_device="wlan0"
-e_device="enp3s0"
 ping_address="google.com"
 
-if [ "$(cat /sys/class/net/$w_device/operstate 2>/dev/null)" == "up" ]; then
+if [ "$(cat /sys/class/net/$WIFI/operstate 2>/dev/null)" == "up" ]; then
 	wifi="$(awk '/^\s*w/ { print "", int($3 * 100 / 70) "%" }' /proc/net/wireless)"
 fi
 
-if [ "$(cat /sys/class/net/$e_device/operstate 2>/dev/null)" == "up" ]; then
+if [ "$(cat /sys/class/net/$ETHERNET/operstate 2>/dev/null)" == "up" ]; then
 	eth=""
 fi
 
