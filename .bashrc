@@ -74,7 +74,7 @@ export BROWSER=/usr/bin/firefox
 export BROWSER_PRIVATE="$BROWSER --private-window"
 export BROWSER_SECONDARY=/usr/bin/librewolf
 export BOOKMARKS=$HOME/.bmks/
-export FILEMANAGER=/usr/bin/pcmanfm
+export FILEMANAGER=/usr/bin/thunar
 
 # Sets the alias for the home directory (for tracking dotfiles)
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
