@@ -23,6 +23,10 @@ interval=10
 [battery]
 interval=5
 
+[keymap]
+interval=once
+signal=10
+
 [clock]
 interval=1
 

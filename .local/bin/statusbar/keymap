@@ -1,0 +1,25 @@
+#!/bin/sh
+# Prints the current keymap
+
+case $BLOCK_BUTTON in
+	1) $($SCRIPTS/colemak-layout-switch.sh) ;;
+esac
+
+output=$(setxkbmap -query)
+
+# Extract and store the values of "layout" and "variant" using regular expressions
+if [[ $output =~ layout:[[:space:]]+([a-zA-Z]+) ]]; then
+    LAYOUT="${BASH_REMATCH[1]}"
+fi
+
+if [[ $output =~ variant:[[:space:]]+([a-zA-Z]+) ]]; then
+    VARIANT="${BASH_REMATCH[1]}"
+else
+    unset VARIANT
+fi
+
+if [[ -z "$VARIANT" ]]; then
+    echo "$LAYOUT"
+else
+    echo "$LAYOUT-$VARIANT"
+fi
