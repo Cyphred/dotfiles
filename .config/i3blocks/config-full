@@ -11,6 +11,9 @@ interval=5
 [cpu]
 interval=15
 
+[gpu]
+interval=5
+
 [memory]
 interval=30
 

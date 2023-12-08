@@ -1,0 +1,6 @@
+#!/bin/sh
+
+output="GPU"
+output+=$(sensors | awk '/edge/ {print $2}')
+echo $output
+

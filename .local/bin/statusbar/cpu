@@ -1,6 +1,6 @@
 #!/bin/sh
 
-output=""
+output="CPU"
 output+=$(sensors | awk '/Core 0/ {print $3}')
 echo $output
 
