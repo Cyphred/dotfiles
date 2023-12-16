@@ -19,9 +19,21 @@ def set_alarm(alarm_time, alarm_sound):
 
 def play_sound(sound_file):
     try:
-        subprocess.run(["mpv", sound_file], check=True)
+        # Set the output to the speakers
+        subprocess.run(["pacmd","set-default-sink","1"], check=True)
+
+        # Unmute the speakers
+        subprocess.run(["pactl","set-sink-mute","1","0"], check=True)
+
+        # Set the output volume
+        subprocess.run(["pactl","set-sink-volume","1","65%"], check=True)
+
+        while True:
+            subprocess.run(["mpv", sound_file], check=True)
     except subprocess.CalledProcessError:
         print("Error: Failed to play the sound file.")
+    except KeyboardInterrupt:
+        exit()
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Set an alarm and play a sound file.")
