@@ -79,7 +79,8 @@ floating_modifier $mod
 #  client.focused          #686966 #859900 #eae1c0 #d33862
 #  client.focused_inactive #686966 #d2cbb6 #686966 #d2cbb6
 #  client.unfocused        #686966 #d2cbb6 #686966 #d2cbb6
-#  client.urgent           #b58900 #b58900 #eee8d5 #b58900
+#  client.urgent           #fff000 #b58900 #eee8d5 #b58900
+client.urgent          #ffca00 #ffca00 #343a40 #ffca00
 #  client.background       #fdf6e3
 
 # Hide borders
@@ -381,6 +382,7 @@ bar {
 
         colors {
                 statusline #e0e0e0
+		urgent_workspace          #ffca00 #ffca00 #343a40 #ffca00
         }
 }
 

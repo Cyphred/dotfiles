@@ -1,6 +1,7 @@
 #!/bin/sh
 
 output="CPU"
-output+=$(sensors | awk '/Core 0/ {print $3}')
+#output+=$(sensors | awk '/Core 0/ {print $3}')
+output+=$(sensors | awk '/Tctl/ {print $2}')
 echo $output
 
