@@ -40,14 +40,11 @@ setxkbmap us -variant colemak
 #picom -b --unredir-if-possible --backend xr_glx_hybrid --vsync --vsync-use-glfinish --use-damage --glx-no-stencil &
 picom --vsync & 
 
-# Set the wallpaper
-feh --bg-fill ~/.wallpaper &
+# For Java applications to work, mainly JetBrains IDEs
+# export _JAVA_AWT_WM_NONREPARENTING=1
 
 # For Java applications to work, mainly JetBrains IDEs
-export _JAVA_AWT_WM_NONREPARENTING=1
-
-# For Java applications to work, mainly JetBrains IDEs
-#export AWT_TOOLKIT=MToolkit
+export AWT_TOOLKIT=MToolkit
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 ## Start dwm

@@ -74,9 +74,10 @@ export BROWSER=/usr/bin/firefox
 export BROWSER_PRIVATE="$BROWSER --private-window"
 export BROWSER_SECONDARY=/usr/bin/librewolf
 export BOOKMARKS=$HOME/.bmks/
-export FILEMANAGER=/usr/bin/thunar
 export ETHERNET="eno0"
-export WIFI="wlp1s0"
+export FILEMANAGER=/usr/bin/pcmanfm
+export WIFI=""
+export SCREENLAYOUT=$HOME/.screenlayout
 
 # Sets the alias for the home directory (for tracking dotfiles)
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
@@ -122,6 +123,11 @@ alias ZZZ='$SCRIPTS/i3lock.sh & sleep 1 && systemctl hibernate'
 alias die='systemctl poweroff'
 alias reboot='systemctl reboot'
 
+# Screen temperature
+alias piss='redshift -PO 3000'
+alias unpiss='redshift -x'
+alias red='redshift -PO 1000'
+
 # Frequent files/documents
 alias sched='sxiv $HOME/.sched'
 alias lazy='less $HOME/notes/lazyman.md'
@@ -143,4 +149,9 @@ alias run='$SCRIPTS/arduino/arduino-compile-and-run.sh'
 # Maybe when Microsoft decides to fix their support for the native linux app,
 # then I'll remove this.
 alias teams='brave https://teams.live.com/'
+
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
+export ANDROID_HOME=/opt/android-sdk
+
+export PATH=$PATH:$JAVA_HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 

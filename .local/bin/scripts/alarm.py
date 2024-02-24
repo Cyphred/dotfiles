@@ -2,6 +2,8 @@ import argparse
 import time
 import subprocess
 
+sink_name='alsa_output.usb-C-Media_Electronics_Inc._USB_Audio_Device-00.analog-stereo'
+
 def set_alarm(alarm_time, alarm_sound):
     alarm_datetime = time.strptime(alarm_time, "%H:%M")
     while True:
@@ -20,13 +22,13 @@ def set_alarm(alarm_time, alarm_sound):
 def play_sound(sound_file):
     try:
         # Set the output to the speakers
-        subprocess.run(["pacmd","set-default-sink","1"], check=True)
+        subprocess.run(["pacmd","set-default-sink",sink_name], check=True)
 
         # Unmute the speakers
-        subprocess.run(["pactl","set-sink-mute","1","0"], check=True)
+        subprocess.run(["pactl","set-sink-mute",sink_name,"0"], check=True)
 
         # Set the output volume
-        subprocess.run(["pactl","set-sink-volume","1","65%"], check=True)
+        subprocess.run(["pactl","set-sink-volume",sink_name,"85%"], check=True)
 
         while True:
             subprocess.run(["mpv", sound_file], check=True)
