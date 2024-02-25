@@ -74,7 +74,7 @@ export BROWSER=/usr/bin/firefox
 export BROWSER_PRIVATE="$BROWSER --private-window"
 export BROWSER_SECONDARY=/usr/bin/librewolf
 export BOOKMARKS=$HOME/.bmks/
-export ETHERNET="eno0"
+export ETHERNET="enp6s0"
 export FILEMANAGER=/usr/bin/pcmanfm
 export WIFI=""
 export SCREENLAYOUT=$HOME/.screenlayout
@@ -84,6 +84,7 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # Programs and utilities
 alias ls='ls --color=auto'
+alias dmenu='dmenu -nb "#eae1c0" -nf "#686966" -sb "#859900" -sf "#eee8d5"'
 alias killwin='$SCRIPTS/kill-on-click.sh'
 alias ytm4a='$SCRIPTS/dl-m4a.sh'
 alias ytmp3='$SCRIPTS/dl-mp3.sh'

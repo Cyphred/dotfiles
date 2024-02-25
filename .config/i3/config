@@ -76,12 +76,12 @@ floating_modifier $mod
 # Configure border colors
 # Note: indic. is for the indicator of the tiling orientation (i.e. vertical, horizontal)
 # class                   border  backgr. text    indic.   child_border
-#  client.focused          #686966 #859900 #eae1c0 #d33862
-#  client.focused_inactive #686966 #d2cbb6 #686966 #d2cbb6
-#  client.unfocused        #686966 #d2cbb6 #686966 #d2cbb6
-#  client.urgent           #fff000 #b58900 #eee8d5 #b58900
-client.urgent          #ffca00 #ffca00 #343a40 #ffca00
-#  client.background       #fdf6e3
+  client.focused          #686966 #859900 #eae1c0 #d33862
+  client.focused_inactive #686966 #d2cbb6 #686966 #d2cbb6
+  client.unfocused        #686966 #d2cbb6 #686966 #d2cbb6
+  client.urgent           #fff000 #b58900 #eee8d5 #b58900
+  client.urgent           #b58900 #b58900 #eee8d5 #b58900
+  client.background       #fdf6e3
 
 # Hide borders
 hide_edge_borders none
@@ -380,9 +380,16 @@ bar {
         tray_output primary
         font pango: Ubuntu Mono 12px
 
-        colors {
-                statusline #e0e0e0
-		urgent_workspace          #ffca00 #ffca00 #343a40 #ffca00
-        }
+	colors {
+		background #eae1c0
+		statusline #686966
+		separator #686966
+
+                                      # border  backgr. text	indic.	child_border
+		focused_workspace	#686966 #859900 #eee8d5 #cb712a
+		inactive_workspace      #686966 #d2cbb6 #686966 #454948
+		binding_mode            #686966 #d2cbb6 #686966 #454948
+		urgent_workspace        #686966 #686966 #eee8d5 #454948
+	}
 }
 
