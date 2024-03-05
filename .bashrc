@@ -125,7 +125,7 @@ alias die='systemctl poweroff'
 alias reboot='systemctl reboot'
 
 # Screen temperature
-alias piss='redshift -PO 3000'
+alias piss='redshift -PO 4000'
 alias unpiss='redshift -x'
 alias red='redshift -PO 1000'
 
