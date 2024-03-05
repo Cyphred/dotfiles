@@ -75,11 +75,11 @@ floating_modifier $mod
 
 # Configure border colors
 # Note: indic. is for the indicator of the tiling orientation (i.e. vertical, horizontal)
-# class                   border  backgr. text    indic.   child_border
-  client.focused	  #686966 #b58900 #eee8d5 #d33862
-  client.focused_inactive #686966 #686966 #d2cbb6 #686966
-  client.unfocused        #686966 #d2cbb6 #686966 #d2cbb6
-  client.urgent           #686966 #d33862 #eee8d5 #d33862
+# class                   border  backgr. text    indic.  child_border
+  client.focused	  #686966 #b58900 #eee8d5 #d33862 #b58900
+  client.focused_inactive #686966 #686966 #d2cbb6 #686966 #686966
+  client.unfocused        #686966 #d2cbb6 #686966 #d2cbb6 #d2cbb6
+  client.urgent           #686966 #d33862 #eee8d5 #d33862 #d33862
   client.background       #fdf6e3
 
 # Hide borders
@@ -385,10 +385,11 @@ bar {
 		separator #686966
 
                                       # border  backgr. text	indic.	child_border
-		focused_workspace	#686966 #b58900 #eee8d5 #cb712a
-		inactive_workspace      #686966 #d2cbb6 #686966 #454948
-		binding_mode            #686966 #d33862 #eee8d5 #454948
-		urgent_workspace        #686966 #d33862 #eee8d5 #454948
+		focused_workspace	#686966 #b58900 #eee8d5 #d33862
+		active_workspace	#686966 #686966 #eee8d5 #d33862
+		inactive_workspace      #686966 #d2cbb6 #686966 #d33862
+		binding_mode            #686966 #d33862 #eee8d5 #d33862
+		urgent_workspace        #686966 #d33862 #eee8d5 #d33862
 	}
 }
 
