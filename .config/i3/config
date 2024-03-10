@@ -209,8 +209,8 @@ bindsym $mod+w layout tabbed
 bindsym $mod+z layout toggle split
 
 # change tiling orientation
-bindsym $mod+v split v ; exec --no-startup-id notify-send -t 750 'Vertical tiling'
-bindsym $mod+c split h ; exec --no-startup-id notify-send -t 750 'Horizontal tiling'
+bindsym $mod+v split v ; exec --no-startup-id dunstify -t 750 'Vertical tiling' --icon='/usr/share/icons/Chicago95/actions/32/go-down.png' -h string:x-dunst-stack-tag:tiling-direction
+bindsym $mod+c split h ; exec --no-startup-id dunstify -t 750 'Horizontal tiling' --icon='/usr/share/icons/Chicago95/actions/32/forward.png' -h string:x-dunst-stack-tag:tiling-direction
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
