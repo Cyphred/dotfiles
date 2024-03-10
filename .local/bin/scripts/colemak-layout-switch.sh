@@ -5,13 +5,21 @@
 
 qwerty () {
 	setxkbmap us
-	notify-send 'Keymap Set' 'Changed the keymap to QWERTY'
+	dunstify -h string:x-dunst-stack-tag:keymap \
+		--icon=/usr/share/icons/Chicago95/devices/32/keyboard.png \
+		'QWERTY Mode' 'Changed the keymap to QWERTY'
 }
 
 colemak () {
 	setxkbmap us -variant colemak
-	notify-send 'Keymap Set' 'Changed the keymap to Colemak'
+	dunstify -h string:x-dunst-stack-tag:keymap \
+		--icon=/usr/share/icons/Chicago95/devices/32/keyboard.png \
+		'Colemak Mode' 'Changed the keymap to Colemak'
 }
 
-setxkbmap -query | grep colemak && qwerty && exit
+# Check if variant is currently colemak
+# Switch to qwerty if true
+setxkbmap -query | grep 'variant:[[:space:]]*colemak' && qwerty && exit
+
+# If above condition fails, falls back to colemak
 colemak
