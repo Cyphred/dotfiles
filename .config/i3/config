@@ -6,6 +6,9 @@
 
 # Things to launch when i3 starts =========================================================
 
+# Play the XP Startup sound for shits and giggles
+exec --no-startup-id mpv $HOME/.config/i3/xp-startup.mp3
+
 # Apply screen layout and set wallpaper
 exec --no-startup-id $SCREENLAYOUT/dual-internal.sh
 exec --no-startup-id feh --bg-fill $HOME/.wallpaper
@@ -30,9 +33,6 @@ exec --no-startup-id flameshot
 
 # Teams
 exec --no-startup-id teams-for-linux
-
-# Viber
-exec --no-startup-id viber
 
 # Workrave - start in normal mode
 # This is so that you don't forget to enable it
