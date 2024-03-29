@@ -15,7 +15,7 @@ URxvt.geometry:         400x400
 ! special
 URxvt.foreground:   #657b83
 URxvt.background:   #fdf6e3
-URxvt.cursorColor:  #eee8d5
+URxvt.cursorColor:  #657b83
 
 ! black
 URxvt.color0:       #073642
