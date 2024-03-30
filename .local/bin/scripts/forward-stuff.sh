@@ -1,24 +1,26 @@
 # !/bin/sh
 
 # Your VPS' Wireguard IP
-VPS=192.168.69.1
+VPS=
 
 # Your Home server's Wireguard IP
-HS=192.168.69.2
+HL_MINECRAFT=
 
-WG_INTERFACE=wg0
-ETH_INTERFACE=eth0
+WG_INTERFACE=
+ETH_INTERFACE=
 
 forward_udp() {
-	sudo iptables -A FORWARD -i $ETH_INTERFACE -o $WG_INTERFACE -p udp --dport $1 -m conntrack --ctstate NEW -j ACCEPT
-	sudo iptables -t nat -A PREROUTING -i $ETH_INTERFACE -p udp --dport $1 -j DNAT --to-destination $HS
-	sudo iptables -t nat -A POSTROUTING -o $WG_INTERFACE -p udp --dport $1 -d $HS -j SNAT --to-source $VPS
+	# Usage: forward_udp <IP Address> <Port>
+	sudo iptables -A FORWARD -i $ETH_INTERFACE -o $WG_INTERFACE -p udp --dport $2 -m conntrack --ctstate NEW -j ACCEPT
+	sudo iptables -t nat -A PREROUTING -i $ETH_INTERFACE -p udp --dport $2 -j DNAT --to-destination $1
+	sudo iptables -t nat -A POSTROUTING -o $WG_INTERFACE -p udp --dport $2 -d $1 -j SNAT --to-source $VPS
 }
 
 forward_tcp() {
-	sudo iptables -A FORWARD -i $ETH_INTERFACE -o $WG_INTERFACE -p tcp --syn --dport $1 -m conntrack --ctstate NEW -j ACCEPT
-	sudo iptables -t nat -A PREROUTING -i $ETH_INTERFACE -p tcp --dport $1 -j DNAT --to-destination $HS
-	sudo iptables -t nat -A POSTROUTING -o $WG_INTERFACE -p tcp --dport $1 -d $HS -j SNAT --to-source $VPS
+	# Usage: forward_tcp <IP Address> <Port>
+	sudo iptables -A FORWARD -i $ETH_INTERFACE -o $WG_INTERFACE -p tcp --syn --dport $2 -m conntrack --ctstate NEW -j ACCEPT
+	sudo iptables -t nat -A PREROUTING -i $ETH_INTERFACE -p tcp --dport $2 -j DNAT --to-destination $1
+	sudo iptables -t nat -A POSTROUTING -o $WG_INTERFACE -p tcp --dport $2 -d $1 -j SNAT --to-source $VPS
 }
 
 # Uncomment this if you want to clear your iptables every time this script is run (NOT RECOMMENDED)
@@ -28,28 +30,8 @@ sudo iptables -P FORWARD DROP
 
 # Add entries below this line
 
-# Satisfactory
-forward_udp 15000
-forward_udp 15777
-forward_udp 7777
-
 # Minecraft
-forward_tcp 25565
-forward_tcp 25566
-
-# Valheim
-forward_tcp 2456
-forward_tcp 2457
-forward_tcp 2458
-forward_udp 2456
-forward_udp 2457
-forward_udp 2458
-
-# Home server ssh
-forward_tcp 25300
-
-# Home dev server
-forward_tcp 8080
+forward_tcp $HL_MINECRAFT 25565
 
 # Add entries above this line
 
