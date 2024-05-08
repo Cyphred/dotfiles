@@ -2,7 +2,8 @@ import argparse
 import time
 import subprocess
 
-sink_name='alsa_output.usb-C-Media_Electronics_Inc._USB_Audio_Device-00.analog-stereo'
+# sink_name='alsa_output.usb-C-Media_Electronics_Inc._USB_Audio_Device-00.analog-stereo'
+sink_name='alsa_output.pci-0000_01_00.1.hdmi-stereo-extra5'
 
 def set_alarm(alarm_time, alarm_sound):
     alarm_datetime = time.strptime(alarm_time, "%H:%M")
@@ -20,6 +21,9 @@ def set_alarm(alarm_time, alarm_sound):
         time.sleep(1)  # Check every second
 
 def play_sound(sound_file):
+    subprocess.run(["xdotool","key","Control_L"],check=False)
+    time.sleep(5)
+
     try:
         # Set the output to the speakers
         subprocess.run(["pacmd","set-default-sink",sink_name], check=True)

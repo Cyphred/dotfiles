@@ -74,7 +74,7 @@ export BROWSER=/usr/bin/firefox
 export BROWSER_PRIVATE="$BROWSER --private-window"
 export BROWSER_SECONDARY=/usr/bin/librewolf
 export BOOKMARKS=$HOME/.bmks/
-export ETHERNET="eno0"
+export ETHERNET="enp3s0"
 export FILEMANAGER=/usr/bin/pcmanfm
 export WIFI=""
 export SCREENLAYOUT=$HOME/.screenlayout
@@ -84,6 +84,7 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # Programs and utilities
 alias ls='ls --color=auto'
+alias dmenu='dmenu -nb "#eae1c0" -nf "#686966" -sb "#859900" -sf "#eee8d5"'
 alias killwin='$SCRIPTS/kill-on-click.sh'
 alias ytm4a='$SCRIPTS/dl-m4a.sh'
 alias ytmp3='$SCRIPTS/dl-mp3.sh'
@@ -119,12 +120,12 @@ alias weather='$SCRIPTS/weather.sh'
 alias lock='$SCRIPTS/i3lock.sh & xset dpms force off'
 alias off='xset dpms force off'
 alias zzz='$SCRIPTS/i3lock.sh & sleep 1 && systemctl suspend'
-alias ZZZ='$SCRIPTS/i3lock.sh & sleep 1 && systemctl hibernate'
-alias die='systemctl poweroff'
-alias reboot='systemctl reboot'
+alias ZZZ='$SCRIPTS/i3lock.sh & sleep 1 && systemctl hibernate || kill $(pidof i3lock)'
+alias die='mpv $HOME/.config/i3/xp-shutdown.mp3 && systemctl poweroff'
+alias reboot='mpv $HOME/.config/i3/xp-shutdown.mp3 && systemctl reboot'
 
 # Screen temperature
-alias piss='redshift -PO 3000'
+alias piss='redshift -PO 4000'
 alias unpiss='redshift -x'
 alias red='redshift -PO 1000'
 

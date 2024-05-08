@@ -1,0 +1,27 @@
+{
+  "editor.wordWrap": "on",
+  "editor.lineNumbers": "relative",
+  "editor.formatOnSave": true,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "workbench.colorTheme": "Better Solarized Light",
+  "errorLens.delay": 500,
+  "workbench.startupEditor": "none",
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontLigatures": true,
+  "editor.fontVariations": false,
+  "editor.codeLensFontFamily": "JetBrains Mono",
+  "editor.inlayHints.fontFamily": "JetBrains Mono",
+  "debug.console.fontFamily": "JetBrains Mono",
+  "scm.inputFontFamily": "JetBrains Mono",
+  "terminal.integrated.fontFamily": "JetBrains Mono",
+  "notebook.output.fontFamily": "JetBrains Mono",
+  "chat.editor.fontFamily": "JetBrains Mono",
+  "errorLens.fontFamily": "JetBrains Mono",
+  "gitlens.blame.fontFamily": "JetBrains Mono",
+  "workbench.iconTheme": "material-icon-theme",
+  "git-graph.customBranchGlobPatterns": [],
+  "editor.tabSize": 2
+}

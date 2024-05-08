@@ -13,7 +13,8 @@ interface=$1
 interval=30
 
 # The address that will be pinged to check for internet
-addr="1.1.1.1"
+#addr="1.1.1.1"
+addr="google.com"
 
 notify-send "Internet Watchdog started" "You will be notified when your internet has been restored."
 

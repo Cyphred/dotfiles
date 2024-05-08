@@ -9,5 +9,13 @@
   "editor.lineNumbers": "relative",
   "editor.wordWrap": "on",
   "workbench.iconTheme": "material-icon-theme",
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "terminal.integrated.fontFamily": "monospace",
+  "editor.fontFamily": "monospace",
+  "errorLens.delay": 500,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "discord.detailsIdling": "Contemplating life choices",
+  "diffEditor.useInlineViewWhenSpaceIsLimited": false
 }

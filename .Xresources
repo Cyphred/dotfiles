@@ -1,6 +1,6 @@
 Xft.dpi: 96
 
-# URxvt configuration
+! URxvt configuration
 URxvt.perl-ext-common:	resize-font
 URxvt.font:		xft:Noto Sans Mono:pixelsize=12
 URxvt.boldFont:		xft:Noto Sans Mono:pixelsize=12:bold
@@ -9,45 +9,45 @@ URxvt.boldItalicFont:	xft:Noto Sans Mono:pixelsize=12:bold:italic
 URxvt.letterSpace:	-1
 URxvt.scrollBar:	false
 
-# This is a temporary fix for the prompt showing up in the middle
+! This is a temporary fix for the prompt showing up in the middle
 URxvt.geometry:         400x400
 
 ! special
-URxvt.foreground:   #c5c8c6
-URxvt.background:   #1d1f21
-URxvt.cursorColor:  #c5c8c6
+URxvt.foreground:   #657b83
+URxvt.background:   #fdf6e3
+URxvt.cursorColor:  #657b83
 
 ! black
-URxvt.color0:       #282a2e
-URxvt.color8:       #373b41
+URxvt.color0:       #073642
+URxvt.color8:       #586e75
 
 ! red
-URxvt.color1:       #a54242
-URxvt.color9:       #cc6666
+URxvt.color1:       #dc322f
+URxvt.color9:       #cd4b16
 
 ! green
-URxvt.color2:       #8c9440
-URxvt.color10:      #b5bd68
+URxvt.color2:       #859900
+URxvt.color10:      #586e75
 
 ! yellow
-URxvt.color3:       #de935f
-URxvt.color11:      #f0c674
+URxvt.color3:       #b58900
+URxvt.color11:      #657b83
 
 ! blue
-URxvt.color4:       #5f819d
-URxvt.color12:      #81a2be
+URxvt.color4:       #268bd2
+URxvt.color12:      #839496
 
 ! magenta
-URxvt.color5:       #85678f
-URxvt.color13:      #b294bb
+URxvt.color5:       #d33862
+URxvt.color13:      #6c71c4
 
 ! cyan
-URxvt.color6:       #5e8d87
-URxvt.color14:      #8abeb7
+URxvt.color6:       #2aa198
+URxvt.color14:      #93a1a1
 
 ! white
-URxvt.color7:       #707880
-URxvt.color15:      #c5c8c6
+URxvt.color7:       #eee8d5
+URxvt.color15:      #eee8d5
 URxvt.keysym.Shift-Control-V:	eval:paste_clipboard
 URxvt.keysym.Shift-Control-C:	eval:selection_to_clipboard
 URxvt.iso14755:			false
