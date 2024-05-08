@@ -6,6 +6,9 @@
 
 # Things to launch when i3 starts =========================================================
 
+# Adds a redshift filter
+exec --no-startup-id redshift -PO 4500
+
 # Play the XP Startup sound for shits and giggles
 exec --no-startup-id mpv $HOME/.config/i3/xp-startup.mp3
 
@@ -91,7 +94,7 @@ bindsym $mod+x border pixel 3
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Ubuntu Mono 9
+font pango:JetBrains Mono 7.5
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -286,7 +289,8 @@ bindsym Shift+XF86WebCam exec --no-startup-id $SCRIPTS/webcam-mirror.sh
 bindsym XF86TouchpadToggle exec --no-startup-id $SCRIPTS/touchpad-toggle.sh
 bindsym XF86Suspend exec --no-startup-id $SCRIPTS/i3lock.sh
 #bindsym Print exec --no-startup-id $SCRIPTS/screenshot-maim.sh
-bindsym Print exec --no-startup-id $HOME/maim-figma-768p.sh
+#bindsym Print exec --no-startup-id $HOME/maim-figma-768p.sh
+bindsym Print exec --no-startup-id scrot -u $HOME/scrot/scrot-$(date +%Y%m%d-%H%M%S).png
 bindsym $mod+Print exec --no-startup-id $SCRIPTS/screenshot-maim.sh -u
 bindsym $mod+Insert exec --no-startup-id flameshot gui
 bindsym $mod+Shift+Print exec --no-startup-id $SCRIPTS/screenshot-maim.sh -fs
@@ -377,7 +381,7 @@ bar {
         status_command i3blocks
         position top
         tray_output primary
-        font pango: Ubuntu Mono 12px
+        font pango: JetBrains Mono 10px
 
 	colors {
 		background #eae1c0
