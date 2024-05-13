@@ -4,11 +4,11 @@
 ping_address="google.com"
 
 if [ "$(cat /sys/class/net/$WIFI/operstate 2>/dev/null)" == "up" ]; then
-	wifi="$(awk '/^\s*w/ { print "", int($3 * 100 / 70) "%" }' /proc/net/wireless)"
+	wifi="$(awk '/^\s*w/ { print "", int($3 * 100 / 70) "%" }' /proc/net/wireless) $(ip addr show $WIFI | grep -oP 'inet \K[\d.]+')"
 fi
 
 if [ "$(cat /sys/class/net/$ETHERNET/operstate 2>/dev/null)" == "up" ]; then
-	eth=""
+	eth=" $(ip addr show $ETHERNET | grep -oP 'inet \K[\d.]+')"
 fi
 
 
